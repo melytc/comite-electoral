@@ -16,6 +16,7 @@
     "dotenv": "^6.0.0",
     "express": "~4.16.0",
     "firebase-admin": "^5.12.1",
+    "g": "^2.0.1",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
@@ -24,6 +25,6 @@
     "pg-promise": "^5.9.7"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.4"
   }
 }

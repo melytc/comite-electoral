@@ -1,0 +1,72 @@
+.navbar-brand {
+  font-family: "helvetica";
+  font-size: 20px;
+  color: white;
+  float: left;
+  display: block;
+  padding: 14px 16px;
+}
+
+.container-fuid {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nabvar-button {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nabvar-button:hover{
+  color: black;
+  background-color: #FFFFFF;
+}
+
+a ul{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* li a:hover {
+    background-color: white;
+    color: black;
+} */
+
+.nabvar-logout-button{
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  margin-right: 14px;
+  text-decoration: none;
+}
+
+.nabvar-round-button{
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 20px;
+  margin-right: 14px;
+  margin-top: 5px;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 300px;
+}
+
+.nabvar-round-button:hover{
+  color: black;
+  border-radius: 300px;
+  background-color: #FFFFFF;
+}
