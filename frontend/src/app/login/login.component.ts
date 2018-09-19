@@ -14,6 +14,12 @@ export class LoginComponent implements OnInit {
   constructor(public auth: AngularFireAuth, private router : Router) { }
 
   ngOnInit() {
+    this.auth.authState.subscribe((user)=>{
+      if (user) {
+        console.log("User logged in")
+        //this.router.navigateByUrl('home');
+      }
+    })
   }
 
   login(){
