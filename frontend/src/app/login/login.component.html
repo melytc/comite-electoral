@@ -1,14 +1,14 @@
+<app-nav-bar></app-nav-bar>
 <div class="container center">
   <mat-form-field>
-    <input matInput placeholder="Email" type='email' >
+    <input matInput [(ngModel)]="email" placeholder="Email" type='email' >
   </mat-form-field>
 <br>
-<p>HOLA {{email}}</p>
   <mat-form-field>
-    <input [(ngModel)]="email" matInput placeholder="Enter your password" type='password'>
+    <input matInput [(ngModel)]="password" placeholder="Enter your password" type='password'>
   </mat-form-field>
 <br>
 
-<button mat-raised-button color="primary" (click)="login()">Primary</button>
+<button mat-raised-button color="primary" (click)="login()">Login</button>
 
 </div>
