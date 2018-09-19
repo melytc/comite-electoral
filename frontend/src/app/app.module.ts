@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 import { AppComponent } from './app.component';
@@ -34,7 +35,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
