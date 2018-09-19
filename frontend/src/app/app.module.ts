@@ -20,6 +20,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,7 +34,9 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     NavBarComponent,
-    SignupComponent
+    SignupComponent,
+    AdminHomeComponent,
+    UserHomeComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
