@@ -1,8 +1,8 @@
 export interface Eleccion {
   id?:string;
   tipo?: string;
-  fechaInicio?: date;
-  fechaFin?: date;
+  fechaInicio?: Date;
+  fechaFin?: Date;
   periodo?:{
     año?: number;
     semestre?: string;
@@ -12,9 +12,9 @@ export interface Eleccion {
       carrera?: string;
       grupo?:{
         grupoEstudiantil?: string;
-        carreras?:[
+        carreras?:{
           carrera?: string;
-        ];
+      };
       }
     }
   ];

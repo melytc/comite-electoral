@@ -5,7 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -34,7 +34,7 @@ import { DatabaseService } from './services/database.service';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component:LoginComponent },
-  { path: 'signup', component: SignupComponent
+  { path: 'signup', component: SignupComponent},
   { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent },
 ];
 
