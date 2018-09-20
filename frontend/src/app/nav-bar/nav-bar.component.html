@@ -6,16 +6,16 @@
 
     <!-- MARK: Displayed only when NO SESSION is stablished -->
 
-    <ul>
+    <!-- <ul>
       <button class="nabvar-round-button" (click)="signup()" mat-button>REGÍSTRATE</button>
-    </ul>
+    </ul> -->
 
     <!-- MARK: Displayed only when ADMIN session is stablished -->
 
-    <!-- <ul>
+    <ul>
       <button class="nabvar-button" mat-button [matMenuTriggerFor]="elecciones">Elecciones</button>
       <mat-menu #elecciones="matMenu" overlapTrigger="false">
-        <button mat-menu-item>Administración de elecciones</button>
+        <button mat-menu-item routerLink="/admin/admin-elecciones">Administración de elecciones</button>
         <button mat-menu-item>Resultados</button>
       </mat-menu>
     </ul>
@@ -35,7 +35,7 @@
     </ul>
     <ul>
       <button class="nabvar-logout-button" mat-flat-button color="warn">Cerrar Sesión</button>
-    </ul> -->
+    </ul>
 
     <!-- MARK: Displayed only when ASESOR session is stablished -->
 
@@ -45,6 +45,6 @@
     <ul>
       <button class="nabvar-logout-button" mat-flat-button color="warn">Cerrar Sesión</button>
     </ul> -->
-    
+
   </div>
 </nav>

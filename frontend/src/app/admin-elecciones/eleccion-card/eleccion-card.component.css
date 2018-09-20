@@ -1,0 +1,37 @@
+.eleccion-card{
+  max-width: 500px;
+  background: linear-gradient(to top left, #702082 38%, #993399 100%);
+}
+
+p{
+  font-size: 20px;
+}
+
+ul{
+  list-style: none;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+.card-title{
+  font-size: 40px;
+}
+
+*{
+  font-family: helvetica;
+  color: white;
+}
+
+.card-buttons {
+  text-align: center;
+}
+
+.edit-button{
+  background-color: #0d98ba;
+  display: inline-block;
+}
+
+.delete-button{
+  background-color: red;
+  display: inline-block;
+}
