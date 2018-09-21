@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
+import { MatNativeDateModule } from '@angular/material'
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -18,6 +18,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -28,12 +31,18 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { DashboardEleccionesComponent } from './admin-elecciones/dashboard-elecciones/dashboard-elecciones.component';
 import { EleccionCardComponent } from './admin-elecciones/eleccion-card/eleccion-card.component';
 import { EleccionesGridComponent } from './admin-elecciones/elecciones-grid/elecciones-grid.component';
+import {MatListModule} from '@angular/material/list';
 
 import { DatabaseService } from './services/database.service';
 import { AdminDbComponent } from './admin-db/admin-db.component';
 import { AdminDashboardComponent } from './admin-home/admin-dashboard/admin-dashboard.component';
 import { AdminCardComponent } from './admin-home/admin-card/admin-card.component';
 import { AdminGridComponent } from './admin-home/admin-grid/admin-grid.component';
+import { NavBarAdminComponent } from './nav-bar-admin/nav-bar-admin.component';
+import { NavBarAsesorComponent } from './nav-bar-asesor/nav-bar-asesor.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BloqueDialogComponent } from './bloque-dialog/bloque-dialog.component';
+import { EleccionDialogComponent } from './eleccion-dialog/eleccion-dialog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -58,7 +67,11 @@ const routes: Routes = [
     AdminDbComponent,
     AdminDashboardComponent,
     AdminCardComponent,
-    AdminGridComponent
+    AdminGridComponent,
+    NavBarAdminComponent,
+    NavBarAsesorComponent,
+    BloqueDialogComponent,
+    EleccionDialogComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -77,8 +90,15 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatTableModule
   ],
+  entryComponents: [BloqueDialogComponent,EleccionDialogComponent],
+
   providers: [DatabaseService],
   bootstrap: [AppComponent]
 })

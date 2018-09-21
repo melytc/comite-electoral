@@ -54,3 +54,7 @@ display: inline-block;
 background-color: red;
 display: inline-block;
 }
+
+table {
+    width: 100%;
+  }
