@@ -30,12 +30,14 @@ import { EleccionCardComponent } from './admin-elecciones/eleccion-card/eleccion
 import { EleccionesGridComponent } from './admin-elecciones/elecciones-grid/elecciones-grid.component';
 
 import { DatabaseService } from './services/database.service';
+import { AdminDbComponent } from './admin-db/admin-db.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component:LoginComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent },
+  { path: 'admin/admin-db', component : AdminDbComponent}
 ];
 
 @NgModule({
@@ -48,7 +50,8 @@ const routes: Routes = [
     UserHomeComponent,
     EleccionCardComponent,
     EleccionesGridComponent,
-    DashboardEleccionesComponent
+    DashboardEleccionesComponent,
+    AdminDbComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
