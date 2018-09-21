@@ -1,0 +1,38 @@
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+input{
+    /* background-color:#673ab7; */
+    color: black;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    margin: 20px;
+    font-size: 15px;
+}
+
+input[type="file" i]{
+    color:gray;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    
+    color: white;
+    background-color: gray;
+    padding: 8px 20px;
+    font-size: 15px;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+  }
