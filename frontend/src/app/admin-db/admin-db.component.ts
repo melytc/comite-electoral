@@ -34,9 +34,20 @@ incomingfile(event)
         fileReader.readAsArrayBuffer(this.file);
 }
 
+filterData(excelData){
+  excelData.forEach(element => {
+    console.log(element)
+    this.filteredData[element.matricula]={
+      fname : `${element.Nombre} ${element.ApPaterno} ${element.ApMaterno}`,
+      major : element.DescMajor,
+      state : element.Estado
+    }
+  });
+  this.db.database.ref('database/').set(this.filteredData);
+}
 
 
-  constructor(se) { }
+  constructor(private db:AngularFireDatabase) { }
 
   ngOnInit() {
   }
