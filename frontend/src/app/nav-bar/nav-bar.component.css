@@ -1,3 +1,12 @@
+.navbar {
+	margin-bottom: 96px;
+}
+
+.button-row{
+	display: flex;
+	justify-content: flex-end;
+}
+
 .navbar-brand {
   font-family: "helvetica";
   font-size: 20px;
@@ -12,16 +21,19 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #212121;
+	background-color: #212121;
+	height: 100px;
 }
 
 .nabvar-button {
-    float: left;
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    padding: 30px 16px;
+	text-decoration: none;
+	font-weight: 300;
+	letter-spacing: 3px;
+	font-size: 12px;
 }
 
 .nabvar-button:hover{
@@ -43,19 +55,22 @@ a ul{
 } */
 
 .nabvar-logout-button{
-  float: right;
   display: block;
   color: white;
   text-align: center;
   padding: 5px 22px;
   margin-right: 14px;
+  margin-top: 25px;
   text-decoration: none;
   border-radius: 50px;
   border-width: 2.5px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  font-size: 12px;
+  height: 50px;
 }
 
 .nabvar-round-button{
-  float: right;
   display: block;
   color: white;
   text-align: center;

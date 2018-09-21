@@ -12,33 +12,29 @@
 
     <!-- MARK: Displayed only when ADMIN session is stablished -->
 
-    <ul>
-      <button class="nabvar-button" mat-button [matMenuTriggerFor]="elecciones">ELECCIONES</button>
-      <mat-menu #elecciones="matMenu" overlapTrigger="false">
-        <button mat-menu-item routerLink="/admin/admin-elecciones">Administraci&oacute;n de elecciones</button>
-        <button mat-menu-item>Resultados</button>
-      </mat-menu>
-    </ul>
-    <ul>
-      <button class="nabvar-button" mat-button [matMenuTriggerFor]="registros">REGISTROS</button>
-      <mat-menu #registros="matMenu" overlapTrigger="false">
-        <button mat-menu-item>Administraci&oacute;n de bloques de registros</button>
-        <button mat-menu-item>Tabla de registros</button>
-      </mat-menu>
-    </ul>
-    <ul>
-      <button class="nabvar-button" mat-button [matMenuTriggerFor]="alumnos">ALUMNOS</button>
-      <mat-menu #alumnos="matMenu" overlapTrigger="false">
-        <button mat-menu-item>Administraci&oacute;n de base de datos</button>
-        <button mat-menu-item>Roles de usuario</button>
-      </mat-menu>
-    </ul>
-    <ul>
-      <button class="nabvar-logout-button" (click)="logout()" mat-stroked-button>CERRAR SESI&Oacute;N</button>
-    </ul>
+	<div class="button-row">
+		<button class="nabvar-button" mat-button [matMenuTriggerFor]="elecciones">ELECCIONES</button>
+		<mat-menu #elecciones="matMenu" overlapTrigger="false">
+		  <button mat-menu-item routerLink="/admin/admin-elecciones">Administraci&oacute;n de elecciones</button>
+		  <button mat-menu-item>Resultados</button>
+		</mat-menu>
+
+		<button class="nabvar-button" mat-button [matMenuTriggerFor]="registros">REGISTROS</button>
+		<mat-menu #registros="matMenu" overlapTrigger="false">
+		  <button mat-menu-item>Administraci&oacute;n de bloques de registros</button>
+		  <button mat-menu-item>Tabla de registros</button>
+		</mat-menu>
+		
+		<button class="nabvar-button" mat-button [matMenuTriggerFor]="alumnos">ALUMNOS</button>
+		<mat-menu #alumnos="matMenu" overlapTrigger="false">
+		  <button mat-menu-item>Administraci&oacute;n de base de datos</button>
+		  <button mat-menu-item>Roles de usuario</button>
+		</mat-menu>
+		
+		<button class="nabvar-logout-button" mat-stroked-button>CERRAR SESI&Oacute;N</button>
+	</div>
 
     <!-- MARK: Displayed only when ASESOR session is stablished -->
-
     <!-- <ul>
       <button class="nabvar-button" mat-button>Registro de votos</button>
     </ul>
