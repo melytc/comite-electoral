@@ -1,0 +1,25 @@
+p {
+    font-family: helvetica;
+    font-weight: 900;
+    font-size: 40px;
+  }
+  
+  .title-button{
+    display: block;
+    width: 100%;
+  }
+  
+  .title{
+    display: inline-block;
+    padding-left: 20px;
+  }
+  
+  .button{
+    padding-right: 20px;
+  }
+  
+  .create-button{
+    background-color: #198C19;
+    color: white;
+  }
+  

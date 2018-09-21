@@ -4,7 +4,7 @@
   color: white;
   float: left;
   display: block;
-  padding: 14px 16px;
+  padding: 20px 20px;
 }
 
 .container-fuid {
@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #212121;
 }
 
 .nabvar-button {
@@ -47,9 +47,11 @@ a ul{
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 5px 22px;
   margin-right: 14px;
   text-decoration: none;
+  border-radius: 50px;
+  border-width: 2.5px;
 }
 
 .nabvar-round-button{

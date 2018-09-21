@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   login(){
     this.auth.auth.signInWithEmailAndPassword(this.email,this.password).then((user)=>{
       console.log(user)
-      //this.router.navigateByUrl('home');
+      this.router.navigateByUrl('/admin/home');
     }).catch((error)=>{
       alert(error);
     })

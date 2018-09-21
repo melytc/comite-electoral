@@ -31,13 +31,17 @@ import { EleccionesGridComponent } from './admin-elecciones/elecciones-grid/elec
 
 import { DatabaseService } from './services/database.service';
 import { AdminDbComponent } from './admin-db/admin-db.component';
+import { AdminDashboardComponent } from './admin-home/admin-dashboard/admin-dashboard.component';
+import { AdminCardComponent } from './admin-home/admin-card/admin-card.component';
+import { AdminGridComponent } from './admin-home/admin-grid/admin-grid.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component:LoginComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent },
-  { path: 'admin/admin-db', component : AdminDbComponent}
+  { path: 'admin/admin-db', component : AdminDbComponent},
+  { path: 'admin/home', component: AdminDashboardComponent}
 ];
 
 @NgModule({
@@ -51,7 +55,10 @@ const routes: Routes = [
     EleccionCardComponent,
     EleccionesGridComponent,
     DashboardEleccionesComponent,
-    AdminDbComponent
+    AdminDbComponent,
+    AdminDashboardComponent,
+    AdminCardComponent,
+    AdminGridComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
