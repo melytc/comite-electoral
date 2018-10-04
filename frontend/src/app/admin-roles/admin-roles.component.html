@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+
+<div id="title">
+	<h1>Administraci&oacute;n de roles</h1>
+</div>
+
+<div id="filtro-tipo-usuario">
+	<button mat-raised-button>Administrador</button>
+	<button mat-raised-button>Asesor</button>
+</div>
+
+<div id="resultados">
+	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+		<!-- Columna: matrícula del usuario -->
+		<ng-container matColumnDef="matricula">
+			<th mat-header-cell *matHeaderCellDef> Matr&iacute;cula </th>
+			<td mat-cell *matCellDef="let element"> {{element.matricula}} </td>
+		</ng-container>
+		
+		<!-- Columna: nombre del usuario -->
+		<ng-container matColumnDef="nombre">
+			<th mat-header-cell *matHeaderCellDef> Nombre </th>
+			<td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+		</ng-container>
+		
+		<!-- Columna: tipo de rol del usuario -->
+		<ng-container matColumnDef="rol">
+			<th mat-header-cell *matHeaderCellDef> Rol asignado </th>
+			<td mat-cell *matCellDef="let element"> {{element.rol}} </td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+</div>

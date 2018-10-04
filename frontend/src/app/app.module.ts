@@ -43,6 +43,7 @@ import { NavBarAsesorComponent } from './nav-bar-asesor/nav-bar-asesor.component
 import {MatDialogModule} from '@angular/material/dialog';
 import { BloqueDialogComponent } from './bloque-dialog/bloque-dialog.component';
 import { EleccionDialogComponent } from './eleccion-dialog/eleccion-dialog.component';
+import { AdminRolesComponent } from './admin-roles/admin-roles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -50,7 +51,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent },
   { path: 'admin/admin-db', component : AdminDbComponent},
-  { path: 'admin/home', component: AdminDashboardComponent}
+  { path: 'admin/home', component: AdminDashboardComponent},
+  { path: 'admin/admin-roles', component : AdminRolesComponent}
 ];
 
 @NgModule({
@@ -71,7 +73,8 @@ const routes: Routes = [
     NavBarAdminComponent,
     NavBarAsesorComponent,
     BloqueDialogComponent,
-    EleccionDialogComponent
+    EleccionDialogComponent,
+    AdminRolesComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
