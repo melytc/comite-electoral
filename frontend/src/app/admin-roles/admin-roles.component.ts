@@ -6,6 +6,7 @@ export interface ResultadosUsuarios {
 	rol: string;
   }
 
+// Datos estáticos, cambiar cuando lo conecten con el backend.
 const ELEMENT_DATA: ResultadosUsuarios[] = [
 	{matricula: 'A00816715', nombre: 'Melissa Janet Treviño Caballero', rol: 'Administrador'},
 	{matricula: 'A00816715', nombre: 'Melissa Janet Treviño Caballero', rol: 'Administrador'},
