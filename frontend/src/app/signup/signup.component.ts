@@ -30,17 +30,20 @@ export class SignupComponent implements OnInit {
         //Obtener datos de la base de datos de los registrados candidatos
         this.db.database.ref(`database/${this.matricula}/`).once('value').then(snap=>{
           //setear info de nuevo candidato
-          console.log(snap)
+          console.log(snap.val().state)
           this.db.database.ref(`registrados/${this.matricula}`).set({
             matricula : this.matricula,
             email: this.email,
-            uid : user.user.uid
+            uid : user.user.uid,
+            state : snap.val().state,
+            major : snap.val().major,
+            fname : snap.val().fname
           })
           this.router.navigateByUrl('/admin/home');
         })
       })
     } else {
-      console.log('Password not confirmed.')
+      alert('Both passwords must match')
     }
   }
 
