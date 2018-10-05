@@ -10,8 +10,11 @@ import { AddRoleDialogComponent } from "./add-role-dialog/add-role-dialog.compon
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['key', 'fname', 'major', 'role','state'];
-  dataSource : any;
+  displayedColumnsUsers: string[] = ['key', 'fname', 'major', 'role','state'];
+  displayedColumnsRegistered: string[] = ['key', 'fname', 'major', 'role','state'];
+
+  dataSourceUsers : any;
+  dataSourceRegistered : any;
   result : string;
 
   constructor(public dialog: MatDialog, private db : AngularFireDatabase) { }
@@ -42,12 +45,12 @@ export class UsersComponent implements OnInit {
           state : element.val().state
         })
       });
-      this.dataSource = new MatTableDataSource(arrDB);
+      this.dataSourceUsers = new MatTableDataSource(arrDB);
     })
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilterUsers(filterValue: string) {
+    this.dataSourceUsers.filter = filterValue.trim().toLowerCase();
   }
 
 }
