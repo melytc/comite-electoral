@@ -20,31 +20,35 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SignupComponent } from './signup/signup.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { UserHomeComponent } from './user-home/user-home.component';
-import { DashboardEleccionesComponent } from './admin-elecciones/dashboard-elecciones/dashboard-elecciones.component';
-import { EleccionCardComponent } from './admin-elecciones/eleccion-card/eleccion-card.component';
-import { EleccionesGridComponent } from './admin-elecciones/elecciones-grid/elecciones-grid.component';
+import { AdminHomeComponent } from './admin/home/admin-home/admin-home.component';
+import { UserHomeComponent } from './user/user-home/user-home.component';
+import { DashboardEleccionesComponent } from './admin/admin-elecciones/dashboard-elecciones/dashboard-elecciones.component';
+import { EleccionCardComponent } from './admin/admin-elecciones/eleccion-card/eleccion-card.component';
+import { EleccionesGridComponent } from './admin/admin-elecciones/elecciones-grid/elecciones-grid.component';
 import {MatListModule} from '@angular/material/list';
 
 import { DatabaseService } from './services/database.service';
-import { AdminDbComponent } from './admin-db/admin-db.component';
-import { AdminDashboardComponent } from './admin-home/admin-dashboard/admin-dashboard.component';
-import { AdminCardComponent } from './admin-home/admin-card/admin-card.component';
-import { AdminGridComponent } from './admin-home/admin-grid/admin-grid.component';
-import { NavBarAdminComponent } from './nav-bar-admin/nav-bar-admin.component';
-import { NavBarAsesorComponent } from './nav-bar-asesor/nav-bar-asesor.component';
+import { AdminDbComponent } from './admin/admin-db/admin-db.component';
+import { AdminDashboardComponent } from './admin/home/admin-home/admin-dashboard/admin-dashboard.component';
+import { AdminCardComponent } from './admin/home/admin-home/admin-card/admin-card.component';
+import { AdminGridComponent } from './admin/home/admin-home/admin-grid/admin-grid.component';
+import { NavBarAdminComponent } from './admin/nav-bar-admin/nav-bar-admin.component';
+import { NavBarAsesorComponent } from './asesor/nav-bar-asesor/nav-bar-asesor.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { BloqueDialogComponent } from './bloque-dialog/bloque-dialog.component';
-import { EleccionDialogComponent } from './eleccion-dialog/eleccion-dialog.component';
-import { AdminRolesComponent } from './admin-roles/admin-roles.component';
-import { AdminRegistrosComponent } from './admin-registros/admin-registros.component';
+import { BloqueDialogComponent } from './admin/home/bloque-dialog/bloque-dialog.component';
+import { EleccionDialogComponent } from './admin/home/eleccion-dialog/eleccion-dialog.component';
+import { AdminRolesComponent } from './admin/admin-roles/admin-roles.component';
+import { AdminRegistrosComponent } from './admin/admin-registros/admin-registros.component';
+import { UsersComponent } from './admin/users/users.component';
+import { AddRoleDialogComponent } from './admin/users/add-role-dialog/add-role-dialog.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -54,6 +58,7 @@ const routes: Routes = [
   { path: 'admin/admin-db', component : AdminDbComponent},
   { path: 'admin/home', component: AdminDashboardComponent},
   { path: 'admin/admin-roles', component : AdminRolesComponent},
+  { path: 'admin/users', component : UsersComponent },
   { path: 'admin/admin-registros', component : AdminRegistrosComponent},
 ];
 
@@ -77,7 +82,9 @@ const routes: Routes = [
     BloqueDialogComponent,
     EleccionDialogComponent,
     AdminRolesComponent,
-    AdminRegistrosComponent
+    AdminRegistrosComponent,
+    UsersComponent,
+    AddRoleDialogComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -101,9 +108,10 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ],
-  entryComponents: [BloqueDialogComponent,EleccionDialogComponent],
+  entryComponents: [BloqueDialogComponent,EleccionDialogComponent,AddRoleDialogComponent],
 
   providers: [DatabaseService],
   bootstrap: [AppComponent]

@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
       if (user) {
         console.log("User logged in")
         //this.router.navigateByUrl('home');
+      }else{
+        this.router.navigateByUrl('login');
       }
     })
   }
