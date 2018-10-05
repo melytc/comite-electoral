@@ -1,75 +1,88 @@
+.navbar {
+}
+
+.button-row{
+	display: flex;
+	justify-content: flex-end;
+}
+
 .navbar-brand {
-    font-family: "helvetica";
-    font-size: 20px;
-    color: white;
-    float: left;
+  font-family: "helvetica";
+  font-size: 20px;
+  color: white;
+  float: left;
+  display: block;
+  padding: 20px 20px;
+}
+
+.container-fuid {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	background-color: #212121;
+	height: 100px;
+}
+
+.nabvar-button {
     display: block;
-    padding: 20px 20px;
-  }
-  
-  .container-fuid {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #212121;
-  }
-  
-  .nabvar-button {
-      float: left;
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-  }
-  
-  .nabvar-button:hover{
+    color: white;
+    text-align: center;
+    padding: 30px 16px;
+	text-decoration: none;
+	font-weight: 300;
+	letter-spacing: 3px;
+	font-size: 12px;
+}
+
+.nabvar-button:hover{
+  color: black;
+  background-color: #FFFFFF;
+}
+
+a ul{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* li a:hover {
+    background-color: white;
     color: black;
-    background-color: #FFFFFF;
-  }
-  
-  a ul{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* li a:hover {
-      background-color: white;
-      color: black;
-  } */
-  
-  .nabvar-logout-button{
-    float: right;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 5px 22px;
-    margin-right: 14px;
-    text-decoration: none;
-    border-radius: 50px;
-    border-width: 2.5px;
-  }
-  
-  .nabvar-round-button{
-    float: right;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 5px 20px;
-    margin-right: 14px;
-    margin-top: 5px;
-    text-decoration: none;
-    border: 2px solid white;
-    border-radius: 300px;
-  }
-  
-  .nabvar-round-button:hover{
-    color: black;
-    border-radius: 300px;
-    background-color: #FFFFFF;
-  }
-  
+} */
+
+.nabvar-logout-button{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 22px;
+  margin-right: 14px;
+  margin-top: 25px;
+  text-decoration: none;
+  border-radius: 50px;
+  border-width: 2.5px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  font-size: 12px;
+  height: 50px;
+}
+
+.nabvar-round-button{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 20px;
+  margin-right: 14px;
+  margin-top: 5px;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 300px;
+}
+
+.nabvar-round-button:hover{
+  color: black;
+  border-radius: 300px;
+  background-color: #FFFFFF;
+}

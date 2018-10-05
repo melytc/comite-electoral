@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar-admin></app-nav-bar-admin>
 
 <div id="title">
 	<h1>Registro de candidaturas</h1>
@@ -25,25 +25,25 @@
 			<th mat-header-cell *matHeaderCellDef> N&uacute;mero de candidatura </th>
 			<td mat-cell *matCellDef="let element"> {{element.numCandidatura}} </td>
 		</ng-container>
-		
+
 		<!-- Columna: grupo estudiantil al que se aplica -->
 		<ng-container matColumnDef="grupoEstudiantil">
 			<th mat-header-cell *matHeaderCellDef> Grupo estudiantil </th>
 			<td mat-cell *matCellDef="let element"> {{element.grupoEstudiantil}} </td>
 		</ng-container>
-		
+
 		<!-- Columna: nombre de la candidatura -->
 		<ng-container matColumnDef="nombreCandidatura">
 			<th mat-header-cell *matHeaderCellDef> Nombre de candidatura </th>
 			<td mat-cell *matCellDef="let element"> {{element.nombreCandidatura}} </td>
 		</ng-container>
-		
+
 		<!-- Columna: estatus de la candidatura -->
 		<ng-container matColumnDef="estatusCandidatura">
 			<th mat-header-cell *matHeaderCellDef> Estatus </th>
 			<td mat-cell *matCellDef="let element"> {{element.estatusCandidatura}} </td>
 		</ng-container>
-		
+
 		<!-- Columna: estatus de la candidatura -->
 		<ng-container matColumnDef="detalleCandidatura">
 			<th mat-header-cell *matHeaderCellDef> Detalle </th>

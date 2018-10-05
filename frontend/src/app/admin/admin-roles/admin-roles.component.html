@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar-admin></app-nav-bar-admin>
 
 <div id="title">
 	<h1>Administraci&oacute;n de roles</h1>
@@ -18,13 +18,13 @@
 			<th mat-header-cell *matHeaderCellDef> Matr&iacute;cula </th>
 			<td mat-cell *matCellDef="let element"> {{element.matricula}} </td>
 		</ng-container>
-		
+
 		<!-- Columna: nombre del usuario -->
 		<ng-container matColumnDef="nombre">
 			<th mat-header-cell *matHeaderCellDef> Nombre </th>
 			<td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
 		</ng-container>
-		
+
 		<!-- Columna: tipo de rol del usuario -->
 		<ng-container matColumnDef="rol">
 			<th mat-header-cell *matHeaderCellDef> Rol asignado </th>

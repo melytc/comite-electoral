@@ -1,28 +1,62 @@
 <strong>Agregar Rol</strong>
 <br>
-<mat-form-field class="full-width">
-  <input matInput placeholder="Nombre" disabled value="" [(ngModel)]="nombre">
-</mat-form-field>
 
-<mat-form-field class="full-width">
-    <input matInput placeholder="Matricula" disabled value="" [(ngModel)]="matricula">
-</mat-form-field>
-
-<mat-form-field class="full-width">
-    <input matInput placeholder="Major" disabled value="" [(ngModel)]="major">
-</mat-form-field>
-
-<mat-form-field class="full-width">
-    <input matInput placeholder="Estado" disabled value="" [(ngModel)]="estado">
-</mat-form-field>
-
-<mat-form-field>
-    <mat-select [(value)]="selectedRol" placeholder="Roles">
-      <mat-option *ngFor="let rol of roles" [value]="rol.value">
-        {{rol.viewValue}}
-      </mat-option>
-    </mat-select>
+<div *ngIf="newUser === true; else newUserCard">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Nombre" disabled value="" [(ngModel)]="nombre">
   </mat-form-field>
 
-<br>
-<button mat-raised-button color="primary" (click)="agregarRol()">Agregar</button>
+  <mat-form-field class="full-width">
+      <input matInput placeholder="Matricula" disabled value="" [(ngModel)]="matricula">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+      <input matInput placeholder="Major" disabled value="" [(ngModel)]="major">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+      <input matInput placeholder="Estado" disabled value="" [(ngModel)]="estado">
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-select [(value)]="selectedRol" placeholder="Roles">
+        <mat-option *ngFor="let rol of roles" [value]="rol.value">
+          {{rol.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <br>
+  <button mat-raised-button color="primary" (click)="agregarRol()">Agregar</button>
+
+</div>
+
+<ng-template #newUserCard>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Nombre"  value="" [(ngModel)]="nombre">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+      <input matInput placeholder="Matricula"  value="" [(ngModel)]="matricula">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+      <input matInput placeholder="Major"  value="" [(ngModel)]="major">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+      <input matInput placeholder="Estado"  value="" [(ngModel)]="estado">
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-select [(ngModel)]="selectedRol" placeholder="Roles">
+        <mat-option *ngFor="let rol of roles" [value]="rol.value">
+          {{rol.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <br>
+  <button mat-raised-button color="primary" (click)="agregarRol()">Agregar</button>
+
+</ng-template>

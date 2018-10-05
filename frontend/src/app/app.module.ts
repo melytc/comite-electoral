@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 import { AppComponent } from './app.component';
@@ -32,7 +33,7 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
 import { DashboardEleccionesComponent } from './admin/admin-elecciones/dashboard-elecciones/dashboard-elecciones.component';
 import { EleccionCardComponent } from './admin/admin-elecciones/eleccion-card/eleccion-card.component';
 import { EleccionesGridComponent } from './admin/admin-elecciones/elecciones-grid/elecciones-grid.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 
 import { DatabaseService } from './services/database.service';
 import { AdminDbComponent } from './admin/admin-db/admin-db.component';
@@ -48,6 +49,7 @@ import { AdminRolesComponent } from './admin/admin-roles/admin-roles.component';
 import { AdminRegistrosComponent } from './admin/admin-registros/admin-registros.component';
 import { UsersComponent } from './admin/users/users.component';
 import { AddRoleDialogComponent } from './admin/users/add-role-dialog/add-role-dialog.component';
+import { AsesorDashboardComponent } from './asesor/asesor-dashboard/asesor-dashboard.component';
 
 
 const routes: Routes = [
@@ -60,6 +62,7 @@ const routes: Routes = [
   { path: 'admin/admin-roles', component : AdminRolesComponent},
   { path: 'admin/users', component : UsersComponent },
   { path: 'admin/admin-registros', component : AdminRegistrosComponent},
+  { path: 'asesor/dashboard',component : AsesorDashboardComponent}
 ];
 
 @NgModule({
@@ -84,7 +87,8 @@ const routes: Routes = [
     AdminRolesComponent,
     AdminRegistrosComponent,
     UsersComponent,
-    AddRoleDialogComponent
+    AddRoleDialogComponent,
+    AsesorDashboardComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -109,7 +113,8 @@ const routes: Routes = [
     MatNativeDateModule,
     MatListModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTooltipModule
   ],
   entryComponents: [BloqueDialogComponent,EleccionDialogComponent,AddRoleDialogComponent],
 

@@ -1,30 +1,32 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar-admin></app-nav-bar-admin>
 
 <mat-tab-group>
-    <mat-tab label="Usuarios"> 
+    <mat-tab label="BD Alumnos">
         <mat-form-field style="margin-left: 5%">
             <input matInput (keyup)="applyFilterUsers($event.target.value)" placeholder="Buscar">
           </mat-form-field>
-          
+
+          <button style="float: right; margin-right: 80px; background-color: green; color: white" mat-fab matTooltip="Agregar nuevo usuario" matTooltipPosition="before" (click)="openDialog(row,false)">+</button>
+
           <table mat-table [dataSource]="dataSourceUsers" class="table mat-elevation-z8">
             <!-- Matricula Column -->
             <ng-container matColumnDef="key">
               <th mat-header-cell *matHeaderCellDef> Matricula </th>
               <td mat-cell *matCellDef="let user"> {{user.key}} </td>
             </ng-container>
-          
+
             <!-- Name Column -->
             <ng-container matColumnDef="fname">
               <th mat-header-cell *matHeaderCellDef> Nombre </th>
               <td mat-cell *matCellDef="let user"> {{user.fname}} </td>
             </ng-container>
-          
+
             <!-- Major Column -->
             <ng-container matColumnDef="major">
               <th mat-header-cell *matHeaderCellDef> Major </th>
               <td mat-cell *matCellDef="let user"> {{user.major}} </td>
             </ng-container>
-          
+
             <!-- Role Column -->
             <ng-container matColumnDef="role">
               <th mat-header-cell *matHeaderCellDef> Rol </th>
@@ -36,35 +38,35 @@
                 <th mat-header-cell *matHeaderCellDef> Estado </th>
                 <td mat-cell *matCellDef="let user"> {{user.state}} </td>
             </ng-container>
-          
+
             <tr mat-header-row *matHeaderRowDef="displayedColumnsUsers"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsUsers;" (click)="openDialog(row)"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsUsers;" (click)="openDialog(row,true)"></tr>
           </table>
     </mat-tab>
     <mat-tab label="Roles">
         <mat-form-field style="margin-left: 5%">
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+            <input matInput (keyup)="applyFilterRoles($event.target.value)" placeholder="Buscar">
           </mat-form-field>
-          
+
           <table mat-table [dataSource]="dataSourceRegistered" class="table mat-elevation-z8">
             <!-- Matricula Column -->
             <ng-container matColumnDef="key">
               <th mat-header-cell *matHeaderCellDef> Matricula </th>
               <td mat-cell *matCellDef="let user"> {{user.key}} </td>
             </ng-container>
-          
+
             <!-- Name Column -->
             <ng-container matColumnDef="fname">
               <th mat-header-cell *matHeaderCellDef> Nombre </th>
               <td mat-cell *matCellDef="let user"> {{user.fname}} </td>
             </ng-container>
-          
+
             <!-- Major Column -->
             <ng-container matColumnDef="major">
               <th mat-header-cell *matHeaderCellDef> Major </th>
               <td mat-cell *matCellDef="let user"> {{user.major}} </td>
             </ng-container>
-          
+
             <!-- Role Column -->
             <ng-container matColumnDef="role">
               <th mat-header-cell *matHeaderCellDef> Rol </th>
@@ -76,10 +78,37 @@
                 <th mat-header-cell *matHeaderCellDef> Estado </th>
                 <td mat-cell *matCellDef="let user"> {{user.state}} </td>
             </ng-container>
-          
+
             <tr mat-header-row *matHeaderRowDef="displayedColumnsRegistered"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsRegistered;" (click)="openDialog(row)"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsRegistered;" (click)="openDialog(row,true)"></tr>
+          </table>
+    </mat-tab>
+    <mat-tab label="Usuarios Registrados">
+        <mat-form-field style="margin-left: 5%">
+            <input matInput (keyup)="applyFilterRegisteredUsers($event.target.value)" placeholder="Buscar">
+          </mat-form-field>
+
+          <table mat-table [dataSource]="dataSourceRegisteredUsers" class="table mat-elevation-z8">
+            <!-- Matricula Column -->
+            <ng-container matColumnDef="key">
+              <th mat-header-cell *matHeaderCellDef> Matricula </th>
+              <td mat-cell *matCellDef="let user"> {{user.key}} </td>
+            </ng-container>
+
+            <!-- Major Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+            </ng-container>
+
+            <!-- Role Column -->
+            <ng-container matColumnDef="uid">
+              <th mat-header-cell *matHeaderCellDef> Uid </th>
+              <td mat-cell *matCellDef="let user"> {{user.uid}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsRegisteredUsers"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsRegisteredUsers;"></tr>
           </table>
     </mat-tab>
 </mat-tab-group>
-
