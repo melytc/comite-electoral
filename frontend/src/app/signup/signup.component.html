@@ -1,3 +1,33 @@
-<p>
-  signup works!
-</p>
+<app-nav-bar></app-nav-bar>
+
+<div class="container center" style="padding-top: 50px" layout-align = "center center">
+  <mat-card>
+      <mat-card-title><b>Registro</b></mat-card-title>
+    <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Correo Institucional</mat-label>
+          <input matInput [(ngModel)]="email" placeholder="Correo Institucional">
+          <mat-hint>ej. a01234567@itesm.mx</mat-hint>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Matricula</mat-label>
+          <input matInput [(ngModel)]="matricula" placeholder="Matricula">
+          <mat-hint>ej. a0.....</mat-hint>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input type = "password" matInput [(ngModel)]="password" placeholder="Contraseña">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Confirmar Contraseña</mat-label>
+          <input type="password" matInput [(ngModel)]="confPassword" placeholder="Confirmar Contraseña">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="signUp()">Registrarse</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
