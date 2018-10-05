@@ -23,6 +23,14 @@ export class SignupComponent implements OnInit {
       this.db.database.ref(`userId/${user.user.uid}`).set({
         matricula : this.matricula
       })
+      //Obtener datos de la base de datos de los registrados candidatos
+      this.db.database.ref(`database/${this.matricula}/`).once('value').then(snap=>{
+        //setear info de nuevo candidato
+        this.db.database.ref(`registrados/${this.matricula}`).set({
+          estado : snap.val().state,
+          uid : user.user.uid,
+        })
+      })
     })
   }
 
