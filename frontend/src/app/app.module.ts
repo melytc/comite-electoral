@@ -50,6 +50,7 @@ import { AdminRegistrosComponent } from './admin/admin-registros/admin-registros
 import { UsersComponent } from './admin/users/users.component';
 import { AddRoleDialogComponent } from './admin/users/add-role-dialog/add-role-dialog.component';
 import { AsesorDashboardComponent } from './asesor/asesor-dashboard/asesor-dashboard.component';
+import { AdminResultadosComponent } from './admin/admin-resultados/admin-resultados.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
   { path: 'admin/admin-roles', component : AdminRolesComponent},
   { path: 'admin/users', component : UsersComponent },
   { path: 'admin/admin-registros', component : AdminRegistrosComponent},
+  { path: 'admin/admin-resultados', component : AdminResultadosComponent},
   { path: 'asesor/dashboard',component : AsesorDashboardComponent}
 ];
 
@@ -88,7 +90,8 @@ const routes: Routes = [
     AdminRegistrosComponent,
     UsersComponent,
     AddRoleDialogComponent,
-    AsesorDashboardComponent
+    AsesorDashboardComponent,
+    AdminResultadosComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -1,0 +1,34 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+
+<!-- El usuario selecciona el año, periodo académico y elección que requiera consultar. -->
+<mat-form-field>
+	<mat-select [(value)]="selectedYear" placeholder="A&ntilde;o">
+		<mat-option>None</mat-option>
+		<mat-option value="option1">2018</mat-option>
+		<mat-option value="option2">2017</mat-option>
+		<mat-option value="option3">2016</mat-option>
+	</mat-select>
+</mat-form-field>
+
+<mat-form-field>
+	<mat-select [(value)]="selectedSemester" placeholder="Semestre">
+		<mat-option>None</mat-option>
+		<mat-option value="option1">Ene-May</mat-option>
+		<mat-option value="option2">Ago-Dic</mat-option>
+	</mat-select>
+</mat-form-field>
+
+<mat-form-field>
+	<mat-select [(value)]="selectedElection" placeholder="Tipo de elecci&oacute;n">
+		<mat-option>None</mat-option>
+		<mat-option value="option1">Sociedades de alumnos</mat-option>
+		<mat-option value="option2">Asociaciones regionales y extranjeras</mat-option>
+		<mat-option value="option3">Elecci&oacute;n general</mat-option>
+	</mat-select>
+</mat-form-field>
+
+<!-- El usuario selecciona la carrera, estado o grupo estudiantil que requiera consultar. -->
+
+	  
+
+<!-- El sistema presenta al usuario con un dashboard con los resultados  de la participación estudiantil en la elección seleccionada. -->
