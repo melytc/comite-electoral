@@ -42,7 +42,7 @@ import { AdminCardComponent } from './admin/home/admin-home/admin-card/admin-car
 import { AdminGridComponent } from './admin/home/admin-home/admin-grid/admin-grid.component';
 import { NavBarAdminComponent } from './admin/nav-bar-admin/nav-bar-admin.component';
 import { NavBarAsesorComponent } from './asesor/nav-bar-asesor/nav-bar-asesor.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BloqueDialogComponent } from './admin/home/bloque-dialog/bloque-dialog.component';
 import { EleccionDialogComponent } from './admin/home/eleccion-dialog/eleccion-dialog.component';
 import { AdminRolesComponent } from './admin/admin-roles/admin-roles.component';

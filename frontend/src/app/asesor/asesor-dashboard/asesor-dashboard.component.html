@@ -1,4 +1,38 @@
 <app-nav-bar-asesor></app-nav-bar-asesor>
-<p>
-  asesor-dashboard works!
-</p>
+
+<div id="busqueda">
+	<h1>B&uacute;squeda de alumnos</h1>
+	<form>
+		<mat-form-field>
+			<input matInput placeholder="Matr&iacute;cula" [formControl]="idFormControl"
+					[errorStateMatcher]="matcher">
+			<mat-hint>Usando A0 o A00</mat-hint>
+			<mat-error *ngIf="idFormControl.hasError('id') && !idFormControl.hasError('required')">
+			La matr&iacute;cula no es v&aacute;lida. Intenta de nuevo.
+			</mat-error>
+		</mat-form-field>
+	</form>
+
+	<button mat-raised-button>Buscar</button>
+
+	<p>¿No encuentras al alumno?</p>
+	<p>Reg&iacute;stralo como alumno irregular.</p>
+
+	<button mat-raised-button>Registrar alumno irregular</button>
+</div>
+
+<div id="resultado">
+	<h1>Alberto Jimenez Hernandez</h1>
+
+	<h3>Puede votar para:</h3>
+
+	<div>
+		<h3>SAITC</h3>
+		<button mat-raised-button>Registrar voto</button>
+	</div>
+
+	<div>
+		<h3>Comité Ejecutivo</h3>
+		<button mat-raised-button>Registrar voto</button>
+	</div>
+</div>
