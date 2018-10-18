@@ -51,6 +51,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { AddRoleDialogComponent } from './admin/users/add-role-dialog/add-role-dialog.component';
 import { AsesorDashboardComponent } from './asesor/asesor-dashboard/asesor-dashboard.component';
 import { AdminResultadosComponent } from './admin/admin-resultados/admin-resultados.component';
+import { CandidatosRegistroComponent } from './candidatos/candidatos-registro/candidatos-registro.component';
 
 
 const routes: Routes = [
@@ -64,7 +65,8 @@ const routes: Routes = [
   { path: 'admin/users', component : UsersComponent },
   { path: 'admin/admin-registros', component : AdminRegistrosComponent},
   { path: 'admin/admin-resultados', component : AdminResultadosComponent},
-  { path: 'asesor/dashboard',component : AsesorDashboardComponent}
+  { path: 'asesor/dashboard',component : AsesorDashboardComponent},
+  { path: 'candidatos/bloques', component : CandidatosRegistroComponent}
 ];
 
 @NgModule({
@@ -91,7 +93,8 @@ const routes: Routes = [
     UsersComponent,
     AddRoleDialogComponent,
     AsesorDashboardComponent,
-    AdminResultadosComponent
+    AdminResultadosComponent,
+    CandidatosRegistroComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

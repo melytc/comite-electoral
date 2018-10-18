@@ -5,12 +5,10 @@
     </div>
 
     <!-- MARK: Displayed only when ASESOR session is stablished -->
-    <ul>
+    <div class="button-row">
       <button class="nabvar-button" mat-button>Registro de votos</button>
-    </ul>
-    <ul>
-      <button class="nabvar-logout-button" mat-flat-button color="warn">Cerrar Sesión</button>
-    </ul>
+  		<button class="nabvar-logout-button" mat-stroked-button (click)="logout()">CERRAR SESI&Oacute;N</button>
+  	</div>
 
   </div>
 </nav>

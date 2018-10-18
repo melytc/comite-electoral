@@ -14,6 +14,9 @@ export class SignupComponent implements OnInit {
   confPassword : string;
   matricula : string;
   rolAsignado : string;
+  state : string;
+  major : string;
+  fname : string;
 
   constructor(private auth : AngularFireAuth, private db : AngularFireDatabase, private router: Router) { }
 
@@ -30,16 +33,33 @@ export class SignupComponent implements OnInit {
         //Obtener datos de la base de datos de los registrados candidatos
         this.db.database.ref(`database/${this.matricula}/`).once('value').then(snap=>{
           //setear info de nuevo candidato
-          console.log(snap.val().state)
+          this.state = snap.val().state;
+          this.major = snap.val().major;
+          this.fname = snap.val().fname;
+
           this.db.database.ref(`registrados/${this.matricula}`).set({
             matricula : this.matricula,
             email: this.email,
             uid : user.user.uid,
-            state : snap.val().state,
-            major : snap.val().major,
-            fname : snap.val().fname
+            state : this.state,
+            major : this.major,
+            fname : this.fname
           })
-          this.router.navigateByUrl('/admin/home');
+
+          this.db.database.ref(`roles/${this.matricula}/`).once('value').then(snap=>{
+            if(snap.exists()){
+              this.rolAsignado = snap.val().role
+              console.log(this.rolAsignado);
+            }
+
+            if(this.rolAsignado === "admin"){
+              this.router.navigateByUrl('/admin/home');
+            }else if(this.rolAsignado === "asesor"){
+              this.router.navigateByUrl('/asesor/dashboard');
+            }else{
+              this.router.navigateByUrl('/candidatos/bloques');
+            }
+          })
         })
       })
     } else {
