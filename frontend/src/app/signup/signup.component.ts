@@ -67,49 +67,4 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  // signUp(){
-  //   if(this.password === this.confPassword) {
-  //     this.auth.auth.createUserWithEmailAndPassword(this.email,this.password).then((user)=>{
-  //       this.db.database.ref(`userId/${user.user.uid}`).set({
-  //         matricula : this.matricula
-  //       })
-  //       //Obtener datos de la base de datos de los registrados candidatos
-  //       this.db.database.ref(`database/${this.matricula}/`).once('value').then(snap=>{
-  //
-  //         this.db.database.ref(`roles/${this.matricula}/`).once('value').then(snap=>{
-  //           if(snap.exists()){
-  //             this.rolAsignado = snap.val().role
-  //             this.db.database.ref(`registrados/${this.matricula}`).set({
-  //               matricula : this.matricula,
-  //               nombre : snap.val().fname,
-  //               email: this.email,
-  //               uid : user.user.uid
-  //             })
-  //
-  //             if(this.rolAsignado === "admin"){
-  //               this.router.navigateByUrl('/admin/home');
-  //             }else if(this.rolAsignado == "asesor"){
-  //               this.router.navigateByUrl('asesor/dashboard');
-  //             }
-  //
-  //           }else{
-  //             this.db.database.ref(`registrados/${this.matricula}`).set({
-  //               matricula : this.matricula,
-  //               nombre : snap.val().fname,
-  //               email: this.email,
-  //               uid : user.user.uid
-  //             })
-  //           }
-  //
-  //         })
-  //
-  //         if(snap.val().key === this.rolMatricula)
-  //
-  //       })
-  //     })
-  //   } else {
-  //     console.log('Password not confirmed.')
-  //   }
-  // }
-
 }

@@ -4,7 +4,7 @@
 	<h1>B&uacute;squeda de alumnos</h1>
 	<form>
 		<mat-form-field>
-			<input matInput placeholder="Matr&iacute;cula" [formControl]="idFormControl"
+			<input matInput placeholder="Matr&iacute;cula" [formControl]="idFormControl" [(ngModel)]="matriculaAlumno"
 					[errorStateMatcher]="matcher">
 			<mat-hint>Usando A0 o A00</mat-hint>
 			<mat-error *ngIf="idFormControl.hasError('id') && !idFormControl.hasError('required')">
@@ -13,7 +13,7 @@
 		</mat-form-field>
 	</form>
 
-	<button mat-raised-button>Buscar</button>
+	<button mat-raised-button (click)="getAlumno()">Buscar</button>
 
 	<p>¿No encuentras al alumno?</p>
 	<p>Reg&iacute;stralo como alumno irregular.</p>
@@ -22,17 +22,20 @@
 </div>
 
 <div id="resultado">
-	<h1>Alberto Jimenez Hernandez</h1>
+	<h1>{{nombreAlumno}}</h1>
 
 	<h3>Puede votar para:</h3>
 
-	<div>
-		<h3>SAITC</h3>
+
+
+	<div *ngFor="let eleccion of arrEleccionesAVotar">
+		<h3>{{eleccion}}</h3>
 		<button mat-raised-button>Registrar voto</button>
 	</div>
 
-	<div>
+	<!-- <div>
 		<h3>Comité Ejecutivo</h3>
 		<button mat-raised-button>Registrar voto</button>
-	</div>
+	</div> -->
+
 </div>
