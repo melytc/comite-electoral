@@ -1,8 +1,47 @@
+
 #busqueda {
 	background-color: #e8e8e8;
-	width: 50%;
+    /* width: 50%; */
+    display: block;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    padding: 25px;
+
 }
 
 #resultado {
-	width: 50%;
+	/*background-color: #e8e8e8;*/
+    /* width: 50%; */
+    display: block;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+	padding: 25px;
+	font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+h1{
+font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+p{
+	font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+h3{
+
+}
+input{
+	background-color: white;
+	padding: 15px;
+}
+
+button{
+	background-color: #673ab7;
+	color: white;
 }
