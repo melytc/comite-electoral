@@ -26,12 +26,36 @@
 
 	<h3>Puede votar para:</h3>
 
-
-
 	<div *ngFor="let eleccion of arrEleccionesAVotar">
-		<h3>{{eleccion}}</h3>
-		<button mat-raised-button>Registrar voto</button>
+		<div *ngIf="eleccion.isVoted === false; else didVoteButton">
+			<div>
+				<h3>{{eleccion.eleccion}}</h3>
+				<button mat-raised-button (click)="markAsVoted(eleccion.eleccion,eleccion.bloque)">Registrar voto</button>
+			</div>
+		</div>
+		<ng-template #didVoteButton>
+			<div >
+				<h3>{{eleccion.eleccion}}</h3>
+				<button mat-raised-button disabled style="background:green; color:white;">Votado</button>
+			</div>
+		</ng-template>
 	</div>
+
+
+
+	<!-- <div *ngIf="hasVoted === false; else didVoteButton">
+		<div *ngFor="let eleccion of arrEleccionesAVotar">
+			<h3>{{eleccion.eleccion}}</h3>
+			<button mat-raised-button (click)="markAsVoted(eleccion.eleccion,eleccion.bloque)">Registrar voto</button>
+		</div>
+	</div>
+
+	<ng-template #didVoteButton>
+		<div *ngFor="let eleccion of arrEleccionesAVotar">
+			<h3>{{eleccion.eleccion}}</h3>
+			<button mat-raised-button disabled style="background:green; color:white;">Votado</button>
+		</div>
+	</ng-template> -->
 
 	<!-- <div>
 		<h3>Comité Ejecutivo</h3>
