@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { AngularFireStorage } from "@angular/fire/storage";
+import { AngularFireDatabase } from "@angular/fire/database";
+
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -23,7 +25,7 @@ export class CandidatosRegistroComponent implements OnInit {
   downloadURLLicencia: any
 
 
-  constructor(private _formBuilder : FormBuilder,private storage: AngularFireStorage) { }
+  constructor(private _formBuilder : FormBuilder,private storage: AngularFireStorage, private db : AngularFireDatabase) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -61,7 +63,13 @@ export class CandidatosRegistroComponent implements OnInit {
   }
 
   terminar(){
-    
+    this.db.database.ref(`candidatura`).push({
+      nombrePresidente:"Miguel Cuellar",
+      nombresVice:"Carmelo Ramirez",
+      carta:this.downloadURLCarta,
+      comprobante:this.downloadURLComprobante,
+      licencia:this.downloadURLLicencia
+    })
   }
 
   carta(event){
@@ -107,7 +115,7 @@ export class CandidatosRegistroComponent implements OnInit {
     task.snapshotChanges().pipe(
         finalize(() => {
           this.downloadURLLicencia = fileRef.getDownloadURL()
-          alert("La licencia se ha subido")
+          alert(`Licencia subida ${this.downloadURLLicencia}`)
         })
      )
     .subscribe()
