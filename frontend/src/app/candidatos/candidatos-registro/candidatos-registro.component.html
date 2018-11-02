@@ -1,3 +1,162 @@
-<p>
-  candidatos-registro works!
-</p>
+<app-nav-bar-asesor></app-nav-bar-asesor>
+<div class="container">
+  <h1>Registro de Candidatos</h1>
+  <h3>Dataos de Registro</h3>
+
+  <mat-horizontal-stepper #stepper>
+      <mat-step>
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Informacion Grupo Estudiantil</ng-template>
+          <div class= "row">
+            <div class="col-md-6 col-lg-6">
+                <mat-form-field appearance = "outline">
+                  <mat-select placeholder="Grupo Estudiantil">
+                    <mat-option value="ITC">SAITC</mat-option>
+                    <mat-option value="INT">SAINT</mat-option>
+                    <mat-option value="LAE">SALAE</mat-option>
+                    <mat-option value="LIN">SALIN</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <mat-checkbox class="checkbox">Enero-Mayo</mat-checkbox>
+                <mat-checkbox class="checkbox">Agosto-Diciembre</mat-checkbox>
+            </div>
+          </div>
+          <br>
+          <div>
+            <button mat-button class="edit-button" matStepperNext>Siguiente</button> 
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Informacion Candidato Presidente</ng-template>
+          <mat-grid-list cols="2" rowHeight="4:3">
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>Nombre(s)</mat-label>
+                  <input matInput placeholder="Nombre(s)" formControlName="secondCtrl" required>
+              </mat-form-field>
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>Apellidos</mat-label>
+                  <input class="p-5" matInput placeholder="Apellidos" formControlName="secondCtrl" required>
+                </mat-form-field>
+          </mat-grid-list>
+
+          <mat-grid-list cols="4" rowHeight="4:3">
+              <mat-form-field appearance = "outline" class="lista2">
+                  <mat-label>Matricula</mat-label>
+                  <input matInput placeholder="Matricula" formControlName="secondCtrl" required>
+              </mat-form-field>
+              <mat-form-field appearance = "outline" class="lista2">
+                      <mat-select placeholder="Carrera" formControlName="secondCtrl" required>
+                        <mat-option value="ITC">ITC</mat-option>
+                        <mat-option value="INT">INT</mat-option>
+                        <mat-option value="LAE">LAE</mat-option>
+                        <mat-option value="LIN">LIN</mat-option>
+                      </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance = "outline" class="lista2">
+                      <mat-select placeholder="Semestre" formControlName="secondCtrl" required>
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                        <mat-option value="4">4</mat-option>
+                        <mat-option value="5">5</mat-option>
+                        <mat-option value="6">6</mat-option>
+                        <mat-option value="7">7</mat-option>
+                        <mat-option value="8">8</mat-option>
+                        <mat-option value="9">9</mat-option>
+                      </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance = "outline" class="lista2">
+                  <mat-label>Promedio</mat-label>
+                  <input class="p-5" matInput placeholder="Promedio" formControlName="secondCtrl" required>
+              </mat-form-field>
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="4:3">
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>Celular</mat-label>
+                  <input matInput placeholder="Celular" formControlName="secondCtrl" required>
+              </mat-form-field>
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>E-Mail</mat-label>
+                  <input class="p-5" matInput placeholder="E-Mail" formControlName="secondCtrl" required>
+                </mat-form-field>
+          </mat-grid-list>
+          <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+          <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+        </form>
+      </mat-step>
+      <mat-step>
+      <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Informacion Candidato Videpresidente</ng-template>
+          <mat-grid-list cols="2" rowHeight="4:3">
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>Nombre(s)</mat-label>
+                  <input matInput placeholder="Nombre(s)" formControlName="thirdCtrl" required>
+              </mat-form-field>
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>Apellidos</mat-label>
+                  <input class="p-5" matInput placeholder="Apellidos" formControlName="thirdCtrl" required>
+                </mat-form-field>
+          </mat-grid-list>
+          
+          <mat-grid-list cols="4" rowHeight="4:3">
+              <mat-form-field appearance = "outline" class="lista2">
+                  <mat-label>Matricula</mat-label>
+                  <input matInput placeholder="Matricula" formControlName="thirdCtrl" required>
+              </mat-form-field>
+              <mat-form-field appearance = "outline" class="lista2">
+                  <mat-select placeholder="Carrera" formControlName="thirdCtrl" required>
+                      <mat-option value="ITC">ITC</mat-option>
+                      <mat-option value="INT">INT</mat-option>
+                      <mat-option value="LAE">LAE</mat-option>
+                      <mat-option value="LIN">LIN</mat-option>
+                    </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance = "outline" class="lista2" required>
+                  <mat-select placeholder="Semestre" formControlName="thirdCtrl" required>
+                      <mat-option value="1">1</mat-option>
+                      <mat-option value="2">2</mat-option>
+                      <mat-option value="3">3</mat-option>
+                      <mat-option value="4">4</mat-option>
+                      <mat-option value="5">5</mat-option>
+                      <mat-option value="6">6</mat-option>
+                      <mat-option value="7">7</mat-option>
+                      <mat-option value="8">8</mat-option>
+                      <mat-option value="9">9</mat-option>
+                    </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance = "outline" class="lista2">
+                  <mat-label>Promedio</mat-label>
+                  <input class="p-5" matInput placeholder="Promedio" formControlName="thirdCtrl" required>
+              </mat-form-field>
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="4:3">
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>Celular</mat-label>
+                  <input matInput placeholder="Celular" formControlName="thirdCtrl" required>
+              </mat-form-field>
+              <mat-form-field appearance = "outline"  class="lista1">
+                  <mat-label>E-Mail</mat-label>
+                  <input class="p-5" matInput placeholder="E-Mail" formControlName="thirdCtrl" required>
+                </mat-form-field>
+          </mat-grid-list>
+
+          <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+          <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+        </form>
+      </mat-step>
+
+      <mat-step>
+          <ng-template matStepLabel>Documentos Registro</ng-template>
+          <p>DOCUMENTOS REGISTRO</p>
+
+          <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+          <button mat-button class="edit-button" matStepperNext>Terminar</button>
+      </mat-step>
+    </mat-horizontal-stepper>
+</div>

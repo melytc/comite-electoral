@@ -1,0 +1,17 @@
+.checkbox {
+    margin-right: 2em;
+}
+
+.lista1 {
+    margin-right: 10em;
+    width: 20em;
+}
+
+.lista2 {
+    margin-right: 5em !important;
+    width: 15em !important;
+}
+
+.placeholder {
+    color:  #aaa;
+}

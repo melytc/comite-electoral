@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { MatNativeDateModule } from '@angular/material'
+import { MatNativeDateModule, MatCheckboxModule, MatStepperModule } from '@angular/material'
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -66,7 +66,7 @@ const routes: Routes = [
   { path: 'admin/admin-registros', component : AdminRegistrosComponent},
   { path: 'admin/admin-resultados', component : AdminResultadosComponent},
   { path: 'asesor/dashboard',component : AsesorDashboardComponent},
-  { path: 'candidatos/bloques', component : CandidatosRegistroComponent}
+  { path: 'candidatos/bloques', component : CandidatosRegistroComponent},
 ];
 
 @NgModule({
@@ -111,6 +111,8 @@ const routes: Routes = [
     MatButtonModule,
     MatMenuModule,
     FormsModule,
+    MatCheckboxModule,
+    MatStepperModule,
     ReactiveFormsModule,
     MatGridListModule,
     MatCardModule,
