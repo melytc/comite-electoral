@@ -66,7 +66,7 @@ export class CandidatosRegistroComponent implements OnInit {
 
   carta(event){
     const fileCarta = event.target.files[0];
-    const filePath = '';
+    const filePath = 'candidatura';
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, fileCarta);
 
@@ -82,7 +82,7 @@ export class CandidatosRegistroComponent implements OnInit {
 
   comprobante(event){
     const fileComprobante = event.target.files[0];
-    const filePath = '';
+    const filePath = 'candidatura';
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, fileComprobante);
 
@@ -97,7 +97,7 @@ export class CandidatosRegistroComponent implements OnInit {
 
   licencia(event){
     const fileLicencia = event.target.files[0];
-    const filePath = '';
+    const filePath = 'candidatura';
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, fileLicencia);
 
