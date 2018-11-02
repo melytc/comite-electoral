@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { MatNativeDateModule, MatCheckboxModule, MatStepperModule } from '@angular/material'
 
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -103,6 +104,7 @@ const routes: Routes = [
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,

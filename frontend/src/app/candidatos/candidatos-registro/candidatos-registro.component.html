@@ -30,26 +30,26 @@
         </form>
       </mat-step>
       <mat-step>
-        <form [formGroup]="secondFormGroup">
+        <form [formGroup]="presidente">
           <ng-template matStepLabel>Informacion Candidato Presidente</ng-template>
           <mat-grid-list cols="2" rowHeight="4:3">
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>Nombre(s)</mat-label>
-                  <input matInput placeholder="Nombre(s)" formControlName="secondCtrl" required>
+                  <input matInput placeholder="Nombre(s)" formControlName="nombresPresidente" required>
               </mat-form-field>
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>Apellidos</mat-label>
-                  <input class="p-5" matInput placeholder="Apellidos" formControlName="secondCtrl" required>
+                  <input class="p-5" matInput placeholder="Apellidos" formControlName="apellidosPresidente" required>
                 </mat-form-field>
           </mat-grid-list>
 
           <mat-grid-list cols="4" rowHeight="4:3">
               <mat-form-field appearance = "outline" class="lista2">
                   <mat-label>Matricula</mat-label>
-                  <input matInput placeholder="Matricula" formControlName="secondCtrl" required>
+                  <input matInput placeholder="Matricula" formControlName="matriculaPresidente" required>
               </mat-form-field>
               <mat-form-field appearance = "outline" class="lista2">
-                      <mat-select placeholder="Carrera" formControlName="secondCtrl" required>
+                      <mat-select placeholder="Carrera" formControlName="carreraPresidente" required>
                         <mat-option value="ITC">ITC</mat-option>
                         <mat-option value="INT">INT</mat-option>
                         <mat-option value="LAE">LAE</mat-option>
@@ -57,7 +57,7 @@
                       </mat-select>
               </mat-form-field>
               <mat-form-field appearance = "outline" class="lista2">
-                      <mat-select placeholder="Semestre" formControlName="secondCtrl" required>
+                      <mat-select placeholder="Semestre" formControlName="semestrePresidente" required>
                         <mat-option value="1">1</mat-option>
                         <mat-option value="2">2</mat-option>
                         <mat-option value="3">3</mat-option>
@@ -71,18 +71,18 @@
               </mat-form-field>
               <mat-form-field appearance = "outline" class="lista2">
                   <mat-label>Promedio</mat-label>
-                  <input class="p-5" matInput placeholder="Promedio" formControlName="secondCtrl" required>
+                  <input class="p-5" matInput placeholder="Promedio" formControlName="promedioPresidente" required>
               </mat-form-field>
           </mat-grid-list>
 
           <mat-grid-list cols="2" rowHeight="4:3">
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>Celular</mat-label>
-                  <input matInput placeholder="Celular" formControlName="secondCtrl" required>
+                  <input matInput placeholder="Celular" formControlName="celularPresidente" required>
               </mat-form-field>
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>E-Mail</mat-label>
-                  <input class="p-5" matInput placeholder="E-Mail" formControlName="secondCtrl" required>
+                  <input class="p-5" matInput placeholder="E-Mail" formControlName="emailPresidente" required>
                 </mat-form-field>
           </mat-grid-list>
           <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
@@ -90,26 +90,26 @@
         </form>
       </mat-step>
       <mat-step>
-      <form [formGroup]="thirdFormGroup">
+      <form [formGroup]="vice">
           <ng-template matStepLabel>Informacion Candidato Videpresidente</ng-template>
           <mat-grid-list cols="2" rowHeight="4:3">
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>Nombre(s)</mat-label>
-                  <input matInput placeholder="Nombre(s)" formControlName="thirdCtrl" required>
+                  <input matInput placeholder="Nombre(s)" formControlName="nombresVice" required>
               </mat-form-field>
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>Apellidos</mat-label>
-                  <input class="p-5" matInput placeholder="Apellidos" formControlName="thirdCtrl" required>
+                  <input class="p-5" matInput placeholder="Apellidos" formControlName="apellidosVice" required>
                 </mat-form-field>
           </mat-grid-list>
           
           <mat-grid-list cols="4" rowHeight="4:3">
               <mat-form-field appearance = "outline" class="lista2">
                   <mat-label>Matricula</mat-label>
-                  <input matInput placeholder="Matricula" formControlName="thirdCtrl" required>
+                  <input matInput placeholder="Matricula" formControlName="matriculaVice" required>
               </mat-form-field>
               <mat-form-field appearance = "outline" class="lista2">
-                  <mat-select placeholder="Carrera" formControlName="thirdCtrl" required>
+                  <mat-select placeholder="Carrera" formControlName="carreraVice" required>
                       <mat-option value="ITC">ITC</mat-option>
                       <mat-option value="INT">INT</mat-option>
                       <mat-option value="LAE">LAE</mat-option>
@@ -117,7 +117,7 @@
                     </mat-select>
               </mat-form-field>
               <mat-form-field appearance = "outline" class="lista2" required>
-                  <mat-select placeholder="Semestre" formControlName="thirdCtrl" required>
+                  <mat-select placeholder="Semestre" formControlName="semestreVice" required>
                       <mat-option value="1">1</mat-option>
                       <mat-option value="2">2</mat-option>
                       <mat-option value="3">3</mat-option>
@@ -131,18 +131,18 @@
               </mat-form-field>
               <mat-form-field appearance = "outline" class="lista2">
                   <mat-label>Promedio</mat-label>
-                  <input class="p-5" matInput placeholder="Promedio" formControlName="thirdCtrl" required>
+                  <input class="p-5" matInput placeholder="Promedio" formControlName="promedioVice" required>
               </mat-form-field>
           </mat-grid-list>
 
           <mat-grid-list cols="2" rowHeight="4:3">
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>Celular</mat-label>
-                  <input matInput placeholder="Celular" formControlName="thirdCtrl" required>
+                  <input matInput placeholder="Celular" formControlName="celularVice" required>
               </mat-form-field>
               <mat-form-field appearance = "outline"  class="lista1">
                   <mat-label>E-Mail</mat-label>
-                  <input class="p-5" matInput placeholder="E-Mail" formControlName="thirdCtrl" required>
+                  <input class="p-5" matInput placeholder="E-Mail" formControlName="emailVice" required>
                 </mat-form-field>
           </mat-grid-list>
 
@@ -154,9 +154,15 @@
       <mat-step>
           <ng-template matStepLabel>Documentos Registro</ng-template>
           <p>DOCUMENTOS REGISTRO</p>
-
+          <button class="btn">Carta director de carrera</button>
+          <input type="file" style="display: inline-block;" (change)="carta($event)" placeholder="Upload file">
+          <button class="btn">Comprobante de pago</button>
+          <input type="file" style="display: inline-block;" (change)="comprobante($event)" placeholder="Upload file">
+          <button class="btn">Licencia</button>
+          <input type="file" style="display: inline-block;" (change)="licencia($event)" placeholder="Upload file">
+          <br>
           <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
-          <button mat-button class="edit-button" matStepperNext>Terminar</button>
+          <button mat-button class="edit-button" (click)=terminar() >Terminar</button>
       </mat-step>
     </mat-horizontal-stepper>
 </div>
