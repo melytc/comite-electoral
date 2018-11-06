@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { AngularFireStorage } from "@angular/fire/storage";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFireDatabase } from "@angular/fire/database";
 
 import { finalize } from 'rxjs/operators';
@@ -15,6 +16,7 @@ export class CandidatosRegistroComponent implements OnInit {
   firstFormGroup : FormGroup;
   secondFormGroup : FormGroup;
   thirdFormGroup : FormGroup;
+  currentUser : any;
   presidente : any;
   vice : any;
   uploadPercentCarta : any;
@@ -25,7 +27,11 @@ export class CandidatosRegistroComponent implements OnInit {
   downloadURLLicencia: any
 
 
-  constructor(private _formBuilder : FormBuilder,private storage: AngularFireStorage, private db : AngularFireDatabase) { }
+  constructor(private _formBuilder : FormBuilder,private storage: AngularFireStorage, private auth : AngularFireAuth, private db : AngularFireDatabase) {
+     auth.auth.onAuthStateChanged(user=>{
+      this.currentUser = user;
+    })
+   }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -63,18 +69,27 @@ export class CandidatosRegistroComponent implements OnInit {
   }
 
   terminar(){
-    this.db.database.ref(`candidatura`).push({
-      nombrePresidente:"Miguel Cuellar",
-      nombresVice:"Carmelo Ramirez",
-      carta:this.downloadURLCarta,
-      comprobante:this.downloadURLComprobante,
-      licencia:this.downloadURLLicencia
-    })
+    // this.db.database.ref(`candidatura`).push({
+    //   nombrePresidente:"Miguel Cuellar",
+    //   nombresVice:"Carmelo Ramirez",
+    //   carta:this.downloadURLCarta,
+    //   comprobante:this.downloadURLComprobante,
+    //   licencia:this.downloadURLLicencia
+    // })
+    var datosRegistro = {
+      ...this.presidente.value,
+      ...this.vice.value
+    };
+    console.log(datosRegistro);
+    datosRegistro.carta = this.downloadURLCarta;
+    datosRegistro.comprobante = this.downloadURLComprobante;
+    datosRegistro.licencia = this.downloadURLLicencia;
+    this.db.database.ref(`candidaturas/${this.currentUser.uid}`).set(datosRegistro);
   }
 
   carta(event){
     const fileCarta = event.target.files[0];
-    const filePath = 'candidatura';
+    const filePath = `carta${this.currentUser.uid}`;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, fileCarta);
 
@@ -82,7 +97,11 @@ export class CandidatosRegistroComponent implements OnInit {
     this.uploadPercentCarta = task.percentageChanges();
     // get notified when the download URL is available
     task.snapshotChanges().pipe(
-        finalize(() => this.downloadURLCarta = fileRef.getDownloadURL() )
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(url=>{
+            this.downloadURLCarta = url
+          })
+        })
      )
     .subscribe()
     }
@@ -90,7 +109,7 @@ export class CandidatosRegistroComponent implements OnInit {
 
   comprobante(event){
     const fileComprobante = event.target.files[0];
-    const filePath = 'candidatura';
+    const filePath = `comprobante${this.currentUser.uid}`;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, fileComprobante);
 
@@ -98,14 +117,18 @@ export class CandidatosRegistroComponent implements OnInit {
     this.uploadPercentComprobante = task.percentageChanges();
     // get notified when the download URL is available
     task.snapshotChanges().pipe(
-        finalize(() => this.downloadURLComprobante = fileRef.getDownloadURL() )
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(url=>{
+            this.downloadURLComprobante = url
+          })
+        })
      )
     .subscribe()
   }
 
   licencia(event){
     const fileLicencia = event.target.files[0];
-    const filePath = 'candidatura';
+    const filePath = `licencia${this.currentUser.uid}`;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, fileLicencia);
 
@@ -114,8 +137,10 @@ export class CandidatosRegistroComponent implements OnInit {
     // get notified when the download URL is available
     task.snapshotChanges().pipe(
         finalize(() => {
-          this.downloadURLLicencia = fileRef.getDownloadURL()
-          alert(`Licencia subida ${this.downloadURLLicencia}`)
+          fileRef.getDownloadURL().subscribe(url=>{
+            this.downloadURLLicencia = url;
+            console.log(url);
+          })
         })
      )
     .subscribe()

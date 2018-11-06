@@ -57,7 +57,7 @@ import { CandidatosRegistroComponent } from './candidatos/candidatos-registro/ca
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component:LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent },
   { path: 'admin/admin-db', component : AdminDbComponent},
