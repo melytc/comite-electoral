@@ -12,11 +12,12 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./candidatos-registro.component.css']
 })
 export class CandidatosRegistroComponent implements OnInit {
-  
+
   firstFormGroup : FormGroup;
   secondFormGroup : FormGroup;
   thirdFormGroup : FormGroup;
   currentUser : any;
+  candidatura: any;
   presidente : any;
   vice : any;
   uploadPercentCarta : any;
@@ -25,7 +26,16 @@ export class CandidatosRegistroComponent implements OnInit {
   downloadURLCarta: any;
   downloadURLComprobante: any;
   downloadURLLicencia: any
+  arrAvailableGruposEstudiantiles : Array<string> = [];
+  arrMajors : Array<string> = [];
 
+  bloqueIsSelected: boolean;
+  isSubmitted: boolean;
+  nombreBloque : string;
+  selectedBloque : string;
+  arrDataBloques : Array<any> = [];
+  estado : string; // para validar si el bloque esta activo para recivir registros o no
+  type: string;
 
   constructor(private _formBuilder : FormBuilder,private storage: AngularFireStorage, private auth : AngularFireAuth, private db : AngularFireDatabase) {
      auth.auth.onAuthStateChanged(user=>{
@@ -34,6 +44,12 @@ export class CandidatosRegistroComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.bloqueIsSelected = false;
+    this.isSubmitted = false;
+    this.fetchBloques();
+    this.fetchMajors();
+
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl : ['', Validators.required]
     });
@@ -46,6 +62,11 @@ export class CandidatosRegistroComponent implements OnInit {
       thirdCtrl : ['', Validators.required]
     });
 
+    this.candidatura = new FormGroup({
+      grupoEstudiantil: new FormControl('',[Validators.required]),
+      nombreCandidatura: new FormControl('',[Validators.required]),
+      periodo: new FormControl('',[Validators.required]),
+    });
     this.presidente = new FormGroup({
       carreraPresidente: new FormControl('', [Validators.required]),
       nombresPresidente: new FormControl('', [Validators.required]),
@@ -68,6 +89,41 @@ export class CandidatosRegistroComponent implements OnInit {
     });
   }
 
+  fetchMajors(){
+    this.db.database.ref('majors').once('value').then(snap=>{
+      snap.forEach(element => {
+        this.arrMajors.push(element.val().name)
+      })
+    })
+  }
+
+  fetchBloques(){
+    this.db.database.ref(`Bloques de registro/2018/Ago-Dic`).once('value').then(snap=>{
+      snap.forEach(element => {
+        var arrGruposEstudiantiles : Array<string> = []
+        this.nombreBloque = element.val().name
+        this.type = element.val().type
+        this.db.database.ref(`Bloques de registro/2018/Ago-Dic/${this.nombreBloque}/Elecciones`).once('value').then(snap=>{
+          snap.forEach(element => {
+            arrGruposEstudiantiles.push(element.val().name)
+          });
+        });
+         this.arrDataBloques.push({name: this.nombreBloque, type: this.type, gruposEstudiantiles: arrGruposEstudiantiles})
+         console.log(this.arrDataBloques)
+      });
+    });
+  }
+
+  selectBloque(bloque){
+    this.bloqueIsSelected = true;
+    this.selectedBloque = bloque
+    for(let bloque of this.arrDataBloques){
+      if(bloque.name === this.selectedBloque){
+        this.arrAvailableGruposEstudiantiles = bloque.gruposEstudiantiles;
+      }
+    }
+  }
+
   terminar(){
     // this.db.database.ref(`candidatura`).push({
     //   nombrePresidente:"Miguel Cuellar",
@@ -77,14 +133,36 @@ export class CandidatosRegistroComponent implements OnInit {
     //   licencia:this.downloadURLLicencia
     // })
     var datosRegistro = {
+      ...this.candidatura.value,
       ...this.presidente.value,
       ...this.vice.value
     };
+    var aux = false
     console.log(datosRegistro);
     datosRegistro.carta = this.downloadURLCarta;
     datosRegistro.comprobante = this.downloadURLComprobante;
     datosRegistro.licencia = this.downloadURLLicencia;
-    this.db.database.ref(`candidaturas/${this.currentUser.uid}`).set(datosRegistro);
+    this.pushRegistro(datosRegistro).then((result) =>{
+      if(result === "true"){
+        aux = true;
+      }
+      this.isSubmitted = aux;
+    });
+  }
+
+  pushRegistro(datosRegistro) {
+    var promise = new Promise((resolve, reject) =>{
+      this.db.database.ref(`Bloques de registro/2018/Ago-Dic/${this.selectedBloque}/Elecciones/${datosRegistro.grupoEstudiantil}/registros/${this.currentUser.uid}`).set(datosRegistro,
+        function(error) {
+        if (!error) {
+          resolve("true")
+          console.log("promise successfull")
+        } else {
+          resolve("false")
+        }
+      });
+    });
+    return promise;
   }
 
   carta(event){
@@ -105,7 +183,7 @@ export class CandidatosRegistroComponent implements OnInit {
      )
     .subscribe()
     }
-  
+
 
   comprobante(event){
     const fileComprobante = event.target.files[0];

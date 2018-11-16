@@ -1,63 +1,190 @@
 <app-nav-bar-asesor></app-nav-bar-asesor>
-<div class="container">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div *ngIf="bloqueIsSelected === false && isSubmitted === false">
   <h1>Registro de Candidatos</h1>
-  <h3>Datos de Registro</h3>
+  <h3>Selecciona el bloque al cual pertenece el grupo estudiantíl al cual te quieres registrar</h3>
+  <mat-grid-list cols="1" rowHeight="300px" *ngFor="let bloque of arrDataBloques">
+      <mat-card *ngIf="bloque.type === 'csa'" class="csa-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">{{bloque.name}}</mat-card-title>
+          <mat-card-subtitle>16/07/2018 9:00 AM - 6:00 PM</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Grupos a elección</p>
+            <ul *ngFor="let grupo of bloque.gruposEstudiantiles">
+              <li>{{grupo}}<li>
+            </ul>
+        </mat-card-content>
+        <mat-card-actions class="card-buttons">
+          <button mat-raised-button class="selectBloque-button" (click)="selectBloque(bloque.name)">Seleccionar Bloque</button>
+        </mat-card-actions>
+      </mat-card>
 
-  <mat-horizontal-stepper #stepper>
-      <mat-step>
-        <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Informacion Grupo Estudiantil</ng-template>
-          <div class= "row">
-            <div class="col-md-6 col-lg-6">
-                <mat-form-field appearance = "outline">
-                  <mat-select placeholder="Grupo Estudiantil">
-                    <mat-option value="ITC">SAITC</mat-option>
-                    <mat-option value="INT">SAINT</mat-option>
-                    <mat-option value="LAE">SALAE</mat-option>
-                    <mat-option value="LIN">SALIN</mat-option>
-                  </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-lg-6">
-                <mat-checkbox class="checkbox">Enero-Mayo</mat-checkbox>
-                <mat-checkbox class="checkbox">Agosto-Diciembre</mat-checkbox>
-            </div>
-          </div>
-          <br>
-          <div>
-            <button mat-button class="edit-button" matStepperNext>Siguiente</button> 
-          </div>
-        </form>
-      </mat-step>
-      <mat-step>
-        <form [formGroup]="presidente">
-          <ng-template matStepLabel>Informacion Candidato Presidente</ng-template>
-          <mat-grid-list cols="2" rowHeight="4:3">
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>Nombre(s)</mat-label>
-                  <input matInput placeholder="Nombre(s)" formControlName="nombresPresidente" required>
-              </mat-form-field>
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>Apellidos</mat-label>
-                  <input class="p-5" matInput placeholder="Apellidos" formControlName="apellidosPresidente" required>
-                </mat-form-field>
-          </mat-grid-list>
+    <ng-template [ngIf]="bloque.type === 'care'">
+      <mat-card class="care-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">{{bloque.name}}</mat-card-title>
+          <mat-card-subtitle>16/07/2018 9:00 AM - 6:00 PM</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Grupos a elección</p>
+            <ul *ngFor="let grupo of bloque.gruposEstudiantiles">
+              <li>{{grupo}}<li>
+            </ul>
+        </mat-card-content>
+        <mat-card-actions class="card-buttons">
+          <button mat-raised-button class="selectBloque-button" (click)="selectBloque(bloque.name)">Seleccionar Bloque</button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-template>
 
-          <mat-grid-list cols="4" rowHeight="4:3">
-              <mat-form-field appearance = "outline" class="lista2">
-                  <mat-label>Matricula</mat-label>
-                  <input matInput placeholder="Matricula" formControlName="matriculaPresidente" required>
-              </mat-form-field>
-              <mat-form-field appearance = "outline" class="lista2">
-                      <mat-select placeholder="Carrera" formControlName="carreraPresidente" required>
-                        <mat-option value="ITC">ITC</mat-option>
-                        <mat-option value="INT">INT</mat-option>
-                        <mat-option value="LAE">LAE</mat-option>
-                        <mat-option value="LIN">LIN</mat-option>
+    <ng-template [ngIf]="bloque.type === 'ejecutivo'">
+      <mat-card class="ejecutivo-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">{{bloque.name}}</mat-card-title>
+          <mat-card-subtitle>16/07/2018 9:00 AM - 6:00 PM</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Grupos a elección</p>
+            <ul *ngFor="let grupo of bloque.gruposEstudiantiles">
+              <li>{{grupo}}<li>
+            </ul>
+        </mat-card-content>
+        <mat-card-actions class="card-buttons">
+          <button mat-raised-button class="selectBloque-button" (click)="selectBloque(bloque.name)">Seleccionar Bloque</button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-template>
+  </mat-grid-list>
+
+</div>
+
+<ng-template [ngIf]="bloqueIsSelected === true && isSubmitted === false">
+  <div class="container">
+    <h1>Registro de Candidatos</h1>
+    <h3>Datos de Registro</h3>
+
+    <mat-horizontal-stepper #stepper>
+        <mat-step>
+          <form [formGroup]="candidatura">
+            <ng-template matStepLabel>Informacion Grupo Estudiantil</ng-template>
+            <div class= "row">
+              <div class="col-md-6 col-lg-6">
+                  <mat-form-field appearance = "outline" required>
+                    <mat-select placeholder="Grupo Estudiantil" formControlName="grupoEstudiantil">
+                      <mat-option *ngFor="let grupo of arrAvailableGruposEstudiantiles" [value]="grupo">
+                        {{grupo}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                  <mat-checkbox formControlName="periodo" class="checkbox" value="Enero-Diciembre">Enero-Diciembre</mat-checkbox>
+                  <mat-checkbox formControlName="periodo" class="checkbox" value="Agosto-Mayo">Agosto-Mayo</mat-checkbox>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Nombre de la candidatura</mat-label>
+                    <input matInput placeholder="Nombre de la candidatura" formControlName="nombreCandidatura" required>
+                </mat-form-field>
+              </div>
+            </div>
+            <br>
+            <div>
+              <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <form [formGroup]="presidente">
+            <ng-template matStepLabel>Informacion Candidato Presidente</ng-template>
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Nombre(s)</mat-label>
+                    <input matInput placeholder="Nombre(s)" formControlName="nombresPresidente" required>
+                </mat-form-field>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Apellidos</mat-label>
+                    <input class="p-5" matInput placeholder="Apellidos" formControlName="apellidosPresidente" required>
+                  </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="4" rowHeight="4:3">
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Matricula</mat-label>
+                    <input matInput placeholder="Matricula" formControlName="matriculaPresidente" required>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                        <mat-select placeholder="Carrera" formControlName="carreraPresidente" required>
+                          <mat-option *ngFor="let carrera of arrMajors" [value]="carrera">
+                            {{carrera}}
+                          </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                        <mat-select placeholder="Semestre" formControlName="semestrePresidente" required>
+                          <mat-option value="1">1</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                          <mat-option value="4">4</mat-option>
+                          <mat-option value="5">5</mat-option>
+                          <mat-option value="6">6</mat-option>
+                          <mat-option value="7">7</mat-option>
+                          <mat-option value="8">8</mat-option>
+                          <mat-option value="9">9</mat-option>
+                          <mat-option value="10">10+</mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Promedio</mat-label>
+                    <input class="p-5" matInput placeholder="Promedio" formControlName="promedioPresidente" required>
+                </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Celular</mat-label>
+                    <input matInput placeholder="Celular" formControlName="celularPresidente" required>
+                </mat-form-field>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>E-Mail</mat-label>
+                    <input class="p-5" matInput placeholder="E-Mail" formControlName="emailPresidente" required>
+                  </mat-form-field>
+            </mat-grid-list>
+            <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+            <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+          </form>
+        </mat-step>
+        <mat-step>
+        <form [formGroup]="vice">
+            <ng-template matStepLabel>Informacion Candidato Videpresidente</ng-template>
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Nombre(s)</mat-label>
+                    <input matInput placeholder="Nombre(s)" formControlName="nombresVice" required>
+                </mat-form-field>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Apellidos</mat-label>
+                    <input class="p-5" matInput placeholder="Apellidos" formControlName="apellidosVice" required>
+                  </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="4" rowHeight="4:3">
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Matricula</mat-label>
+                    <input matInput placeholder="Matricula" formControlName="matriculaVice" required>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-select placeholder="Carrera" formControlName="carreraVice" required>
+                      <mat-option *ngFor="let carrera of arrMajors" [value]="carrera">
+                        {{carrera}}
+                      </mat-option>
                       </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance = "outline" class="lista2">
-                      <mat-select placeholder="Semestre" formControlName="semestrePresidente" required>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2" required>
+                    <mat-select placeholder="Semestre" formControlName="semestreVice" required>
                         <mat-option value="1">1</mat-option>
                         <mat-option value="2">2</mat-option>
                         <mat-option value="3">3</mat-option>
@@ -67,102 +194,56 @@
                         <mat-option value="7">7</mat-option>
                         <mat-option value="8">8</mat-option>
                         <mat-option value="9">9</mat-option>
+                        <mat-option value="10">10+</mat-option>
                       </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance = "outline" class="lista2">
-                  <mat-label>Promedio</mat-label>
-                  <input class="p-5" matInput placeholder="Promedio" formControlName="promedioPresidente" required>
-              </mat-form-field>
-          </mat-grid-list>
-
-          <mat-grid-list cols="2" rowHeight="4:3">
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>Celular</mat-label>
-                  <input matInput placeholder="Celular" formControlName="celularPresidente" required>
-              </mat-form-field>
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>E-Mail</mat-label>
-                  <input class="p-5" matInput placeholder="E-Mail" formControlName="emailPresidente" required>
                 </mat-form-field>
-          </mat-grid-list>
-          <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
-          <button mat-button class="edit-button" matStepperNext>Siguiente</button>
-        </form>
-      </mat-step>
-      <mat-step>
-      <form [formGroup]="vice">
-          <ng-template matStepLabel>Informacion Candidato Videpresidente</ng-template>
-          <mat-grid-list cols="2" rowHeight="4:3">
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>Nombre(s)</mat-label>
-                  <input matInput placeholder="Nombre(s)" formControlName="nombresVice" required>
-              </mat-form-field>
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>Apellidos</mat-label>
-                  <input class="p-5" matInput placeholder="Apellidos" formControlName="apellidosVice" required>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Promedio</mat-label>
+                    <input class="p-5" matInput placeholder="Promedio" formControlName="promedioVice" required>
                 </mat-form-field>
-          </mat-grid-list>
-          
-          <mat-grid-list cols="4" rowHeight="4:3">
-              <mat-form-field appearance = "outline" class="lista2">
-                  <mat-label>Matricula</mat-label>
-                  <input matInput placeholder="Matricula" formControlName="matriculaVice" required>
-              </mat-form-field>
-              <mat-form-field appearance = "outline" class="lista2">
-                  <mat-select placeholder="Carrera" formControlName="carreraVice" required>
-                      <mat-option value="ITC">ITC</mat-option>
-                      <mat-option value="INT">INT</mat-option>
-                      <mat-option value="LAE">LAE</mat-option>
-                      <mat-option value="LIN">LIN</mat-option>
-                    </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance = "outline" class="lista2" required>
-                  <mat-select placeholder="Semestre" formControlName="semestreVice" required>
-                      <mat-option value="1">1</mat-option>
-                      <mat-option value="2">2</mat-option>
-                      <mat-option value="3">3</mat-option>
-                      <mat-option value="4">4</mat-option>
-                      <mat-option value="5">5</mat-option>
-                      <mat-option value="6">6</mat-option>
-                      <mat-option value="7">7</mat-option>
-                      <mat-option value="8">8</mat-option>
-                      <mat-option value="9">9</mat-option>
-                    </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance = "outline" class="lista2">
-                  <mat-label>Promedio</mat-label>
-                  <input class="p-5" matInput placeholder="Promedio" formControlName="promedioVice" required>
-              </mat-form-field>
-          </mat-grid-list>
+            </mat-grid-list>
 
-          <mat-grid-list cols="2" rowHeight="4:3">
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>Celular</mat-label>
-                  <input matInput placeholder="Celular" formControlName="celularVice" required>
-              </mat-form-field>
-              <mat-form-field appearance = "outline"  class="lista1">
-                  <mat-label>E-Mail</mat-label>
-                  <input class="p-5" matInput placeholder="E-Mail" formControlName="emailVice" required>
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Celular</mat-label>
+                    <input matInput placeholder="Celular" formControlName="celularVice" required>
                 </mat-form-field>
-          </mat-grid-list>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>E-Mail</mat-label>
+                    <input class="p-5" matInput placeholder="E-Mail" formControlName="emailVice" required>
+                  </mat-form-field>
+            </mat-grid-list>
 
-          <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
-          <button mat-button class="edit-button" matStepperNext>Siguiente</button>
-        </form>
-      </mat-step>
+            <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+            <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+          </form>
+        </mat-step>
 
-      <mat-step>
-          <ng-template matStepLabel>Documentos Registro</ng-template>
-          <p>DOCUMENTOS REGISTRO</p>
-          <button class="btn">Carta director de carrera</button>
-          <input type="file" style="display: inline-block;" (change)="carta($event)" placeholder="Upload file">
-          <button class="btn">Comprobante de pago</button>
-          <input type="file" style="display: inline-block;" (change)="comprobante($event)" placeholder="Upload file">
-          <button class="btn">Licencia</button>
-          <input type="file" style="display: inline-block;" (change)="licencia($event)" placeholder="Upload file">
-          <br>
-          <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
-          <button mat-button class="edit-button" (click)=terminar() >Terminar</button>
-      </mat-step>
-    </mat-horizontal-stepper>
-</div>
+        <mat-step>
+            <ng-template matStepLabel>Documentos Registro</ng-template>
+            <p>DOCUMENTOS REGISTRO</p>
+            <button class="btn">Carta director de carrera</button>
+            <input type="file" style="display: inline-block;" (change)="carta($event)" placeholder="Upload file">
+            <button class="btn">Comprobante de pago</button>
+            <input type="file" style="display: inline-block;" (change)="comprobante($event)" placeholder="Upload file">
+            <button class="btn">Licencia</button>
+            <input type="file" style="display: inline-block;" (change)="licencia($event)" placeholder="Upload file">
+            <br>
+            <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+            <button mat-button class="edit-button" (click)=terminar() >Terminar</button>
+        </mat-step>
+      </mat-horizontal-stepper>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="isSubmitted === true">
+  <div class="confirmacion">
+    <i class="material-icons">check_circle</i>
+    <h1 class="content">Todo listo, registro enviado exitosamente</h1>
+    <p class="content">Hemos recibido tu registro, sin embargo no HA SIDO ACEPTADO, la Comisión de Participación Estudiantil y Elecciones
+    verificará tu información así como los documentos que anexaste y se pondra en contacto contigo para notificarte
+    sobre el estatus de tu registro.
+    </p>
+    <p class="content">Para cualquier duda o aclaración, por favor envia un correo a hola@comiteelectoral.mx</p>
+  </div>
+</ng-template>

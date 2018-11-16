@@ -15,9 +15,9 @@
 
 		<button class="nabvar-button" mat-button [matMenuTriggerFor]="registros">REGISTROS</button>
 		<mat-menu #registros="matMenu" overlapTrigger="false">
-			<button mat-menu-item>Administraci&oacute;n de bloques de registros</button>
+			<button mat-menu-item routerLink="/admin/admin-bloquesRegistro">Administraci&oacute;n de bloques de registros</button>
 			<button mat-menu-item routerLink="/candidatos/bloques">Registro Candidatos</button>
-		  <button mat-menu-item>Tabla de registros</button>
+		  <button mat-menu-item routerLink="/admin/admin-registros">Tabla de registros</button>
 		</mat-menu>
 
 		<button class="nabvar-button" mat-button [matMenuTriggerFor]="alumnos">USUARIOS</button>
