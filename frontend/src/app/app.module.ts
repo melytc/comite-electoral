@@ -57,20 +57,20 @@ import { AdminBloquesRegistroComponent } from './admin/admin-bloques-registro/ad
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent},
-  { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent },
-  { path: 'admin/admin-db', component : AdminDbComponent},
-  { path: 'admin/home', component: AdminDashboardComponent},
-  { path: 'admin/admin-roles', component : AdminRolesComponent},
-  { path: 'admin/users', component : UsersComponent },
-  { path: 'admin/admin-registros', component : AdminRegistrosComponent},
-  { path: 'admin/admin-bloquesRegistro', component: AdminBloquesRegistroComponent},
-  { path: 'admin/admin-resultados', component : AdminResultadosComponent},
-  { path: 'asesor/dashboard',component : AsesorDashboardComponent},
-  { path: 'candidatos/bloques', component : CandidatosRegistroComponent},
-];
+	{ path: '', redirectTo: '/login', pathMatch: 'full' },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'signup', component: SignupComponent},
+	// { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent }, eliminar este componente
+	{ path: 'admin/alumnado', component : AdminDbComponent}, // actualizar pantalla, 
+	// { path: 'admin/home', component: AdminDashboardComponent}, eliminar este componente
+	// { path: 'admin/admin-roles', component : AdminRolesComponent}, eliminar este componente
+	{ path: 'admin/usuarios', component : UsersComponent },
+	// { path: 'admin/admin-registros', component : AdminRegistrosComponent}, eliminar este componente
+	{ path: 'admin/bloques-registro', component: AdminBloquesRegistroComponent},
+	// { path: 'admin/admin-resultados', component : AdminResultadosComponent}, eliminar este componente
+	{ path: 'asesor/dashboard',component : AsesorDashboardComponent},
+	{ path: 'candidatos/bloques', component : CandidatosRegistroComponent},
+  ];
 
 @NgModule({
   declarations: [
