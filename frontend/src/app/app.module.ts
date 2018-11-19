@@ -46,7 +46,6 @@ import { NavBarAsesorComponent } from './asesor/nav-bar-asesor/nav-bar-asesor.co
 import { MatDialogModule } from '@angular/material/dialog';
 import { BloqueDialogComponent } from './admin/home/bloque-dialog/bloque-dialog.component';
 import { EleccionDialogComponent } from './admin/home/eleccion-dialog/eleccion-dialog.component';
-import { AdminRolesComponent } from './admin/admin-roles/admin-roles.component';
 import { AdminRegistrosComponent } from './admin/admin-registros/admin-registros.component';
 import { UsersComponent } from './admin/users/users.component';
 import { AddRoleDialogComponent } from './admin/users/add-role-dialog/add-role-dialog.component';
@@ -63,7 +62,6 @@ const routes: Routes = [
 	// { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent }, eliminar este componente
 	{ path: 'admin/alumnado', component : AdminDbComponent}, // actualizar pantalla, 
 	// { path: 'admin/home', component: AdminDashboardComponent}, eliminar este componente
-	// { path: 'admin/admin-roles', component : AdminRolesComponent}, eliminar este componente
 	{ path: 'admin/usuarios', component : UsersComponent },
 	// { path: 'admin/admin-registros', component : AdminRegistrosComponent}, eliminar este componente
 	{ path: 'admin/bloques-registro', component: AdminBloquesRegistroComponent},
@@ -91,7 +89,6 @@ const routes: Routes = [
     NavBarAsesorComponent,
     BloqueDialogComponent,
     EleccionDialogComponent,
-    AdminRolesComponent,
     AdminRegistrosComponent,
     UsersComponent,
     AddRoleDialogComponent,
