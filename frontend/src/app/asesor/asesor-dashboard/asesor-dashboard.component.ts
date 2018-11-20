@@ -18,6 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class AsesorDashboardComponent implements OnInit {
 
+  // btnStyle : string;
   matriculaAlumno : string;
   carreraAlumno : string;
   estadoAlumno : string;
@@ -42,6 +43,7 @@ export class AsesorDashboardComponent implements OnInit {
   constructor(private db : AngularFireDatabase, private router : Router) { }
 
   ngOnInit() {
+    // this.btnStyle = 'button';
   }
 
   getAlumno(){
@@ -61,9 +63,10 @@ export class AsesorDashboardComponent implements OnInit {
         snap.forEach(element => {
           // Elecion de carreras - bloque CSA
           if(element.val().inProgress === true && element.val().type === "csa"){
-            this.bloque = element.val().name
+            var actualBloque = element.val().name
+            // this.bloque = element.val().name
             console.log(this.bloque)
-            this.db.database.ref(`2018Semestre2/${this.bloque}/Elecciones`).once('value').then(snap=>{
+            this.db.database.ref(`2018Semestre2/${actualBloque}/Elecciones`).once('value').then(snap=>{
               snap.forEach(element => {
                 console.log(element.val().name);
                   this.arrCarreras = element.val().carreras;
@@ -71,12 +74,12 @@ export class AsesorDashboardComponent implements OnInit {
                     if(carrera === this.carreraAlumno){
                       fueVotado = false
                       console.log(element.val().name);
-                      this.searchiIfVoted(this.matriculaAlumno,this.bloque,element.val().name).then((result) =>{
+                      this.searchiIfVoted(this.matriculaAlumno,actualBloque,element.val().name).then((result) =>{
                         if(result === "true"){
                           fueVotado = true;
                           console.log("SI JALOOOOO" + fueVotado)
                         }
-                        arrAuxElecciones.push({eleccion: element.val().name, bloque: this.bloque, isVoted: fueVotado});
+                        arrAuxElecciones.push({eleccion: element.val().name, bloque: actualBloque, isVoted: fueVotado});
                         console.log(arrAuxElecciones);
                       });
 
@@ -148,10 +151,11 @@ export class AsesorDashboardComponent implements OnInit {
           this.db.database.ref(`2018Semestre2/${bloque}/Elecciones/${this.votandoPara}`).once('value').then(snap=>{
             this.db.database.ref(`2018Semestre2/${bloque}/Elecciones/${this.votandoPara}`).update({votos: snap.val().votos+1});
           });
-
+          // this.btnStyle = 'button-voted';
         }
       }
     });
+    this.getAlumno();
   }
 
   searchiIfVoted(matricula,bloque,eleccion) {

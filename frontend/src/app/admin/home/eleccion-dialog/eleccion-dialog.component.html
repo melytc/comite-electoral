@@ -5,5 +5,11 @@
   <input matInput placeholder="Nombre de la elección" value="" [(ngModel)]="name">
 </mat-form-field>
 
+<mat-form-field>
+  <mat-select placeholder="Carreras" [formControl]="majorsFormControl" multiple>
+    <mat-option *ngFor="let major of majors" [value]="major">{{major}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
 <br>
 <button mat-raised-button color="primary" (click)="agregareleccion()">Agregar</button>

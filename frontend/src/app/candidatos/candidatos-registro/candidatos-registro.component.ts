@@ -135,7 +135,8 @@ export class CandidatosRegistroComponent implements OnInit {
     var datosRegistro = {
       ...this.candidatura.value,
       ...this.presidente.value,
-      ...this.vice.value
+      ...this.vice.value,
+      bloque : this.selectedBloque
     };
     var aux = false
     console.log(datosRegistro);
@@ -152,7 +153,7 @@ export class CandidatosRegistroComponent implements OnInit {
 
   pushRegistro(datosRegistro) {
     var promise = new Promise((resolve, reject) =>{
-      this.db.database.ref(`Bloques de registro/2018/Ago-Dic/${this.selectedBloque}/Elecciones/${datosRegistro.grupoEstudiantil}/registros/${this.currentUser.uid}`).set(datosRegistro,
+      this.db.database.ref(`candidaturas/${this.currentUser.uid}`).set(datosRegistro,
         function(error) {
         if (!error) {
           resolve("true")

@@ -12,7 +12,7 @@ import { AddRoleDialogComponent } from "./add-role-dialog/add-role-dialog.compon
 export class UsersComponent implements OnInit {
   displayedColumnsUsers: string[] = ['key', 'fname', 'major', 'role','state'];
   displayedColumnsRegistered: string[] = ['key', 'fname', 'major', 'role','state'];
-  displayedColumnsRegisteredUsers: string[] = ['key','email','uid'];
+  displayedColumnsRegisteredUsers: string[] = ['key','email'];
 
   dataSourceUsers : any;
   dataSourceRegistered : any;

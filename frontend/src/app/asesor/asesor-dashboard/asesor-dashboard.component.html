@@ -26,20 +26,22 @@
 
 	<h3>Puede votar para:</h3>
 
-	<div *ngFor="let eleccion of arrEleccionesAVotar">
-		<div *ngIf="eleccion.isVoted === false; else didVoteButton">
-			<div>
-				<h3>{{eleccion.eleccion}}</h3>
-				<button mat-raised-button (click)="markAsVoted(eleccion.eleccion,eleccion.bloque)">Registrar voto</button>
-			</div>
+<div *ngFor="let eleccion of arrEleccionesAVotar">
+	<div>
+		<div>
+			<h3>{{eleccion.eleccion}}</h3>
+			<button mat-raised-button [ngClass]="{'button-voted': eleccion.isVoted, 'button-notVoted': !eleccion.isVoted}" (click)="markAsVoted(eleccion.eleccion,eleccion.bloque)">Registrar voto</button>
 		</div>
-		<ng-template #didVoteButton>
-			<div >
-				<h3>{{eleccion.eleccion}}</h3>
-				<button mat-raised-button disabled style="background:green; color:white;">Votado</button>
-			</div>
-		</ng-template>
 	</div>
+</div>
+<!-- <div *ngFor="let eleccion of arrEleccionesAVotar">
+	<ng-template [ngIf]="eleccion.isVoted === true">
+		<div>
+			<h3>{{eleccion.eleccion}}</h3>
+			<button mat-raised-button [ngClass]="['bntStyle']">Votado</button>
+		</div>
+	</ng-template>
+</div> -->
 
 
 

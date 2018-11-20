@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { EleccionDialogComponent } from '../../eleccion-dialog/eleccion-dialog.component'
+import { Chart } from 'angular-highcharts';
 
 import { BloqueDialogComponent } from '../../bloque-dialog/bloque-dialog.component'
 import { AngularFireDatabase } from '@angular/fire/database'
@@ -20,6 +21,23 @@ export class AdminGridComponent implements OnInit {
   elecciones = [];
   displayedColumnsBloques: string[] = ['name'];
   displayedColumnsElecciones: string[] = ['name'];
+  chart = new Chart({
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: 'Linechart'
+    },
+    credits: {
+      enabled: false
+    },
+    series: [
+      {
+        name: 'Carreras',
+        data: [1, 2, 3]
+      }
+    ]
+  });
 
 
   ngOnInit() {
@@ -36,6 +54,7 @@ export class AdminGridComponent implements OnInit {
         name : String(result.name),
         startDate : String(result.startDate),
         finishDate : String(result.finishDate),
+        type : String(result.type),
         inProgress: true
       })
     });
@@ -52,7 +71,9 @@ export class AdminGridComponent implements OnInit {
 
       this.db.database.ref(`2018Semestre2/${this.selectedBloque}/Elecciones/${result.name}`).set({
         name : String(result.name),
-        inProgress: true
+        inProgress: true,
+        votos : 0,
+        carreras : result.carreras,
       }).then(()=>{
         this.fetchInfo();
         this.refreshBloques();
@@ -90,7 +111,7 @@ export class AdminGridComponent implements OnInit {
       console.log(this.bloques)
     })
   }
-  
+
   refreshBloques(){
     if(this.bloquesJson[this.selectedBloque].Elecciones){
       var elec = this.bloquesJson[this.selectedBloque].Elecciones;
