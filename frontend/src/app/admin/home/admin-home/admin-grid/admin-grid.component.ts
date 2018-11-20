@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { EleccionDialogComponent } from '../../eleccion-dialog/eleccion-dialog.component'
+import { Chart } from 'angular-highcharts';
 
 import { BloqueDialogComponent } from '../../bloque-dialog/bloque-dialog.component'
 import { AngularFireDatabase } from '@angular/fire/database'
@@ -20,6 +21,23 @@ export class AdminGridComponent implements OnInit {
   elecciones = [];
   displayedColumnsBloques: string[] = ['name'];
   displayedColumnsElecciones: string[] = ['name'];
+  chart = new Chart({
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: 'Linechart'
+    },
+    credits: {
+      enabled: false
+    },
+    series: [
+      {
+        name: 'Carreras',
+        data: [1, 2, 3]
+      }
+    ]
+  });
 
 
   ngOnInit() {
