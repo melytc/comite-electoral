@@ -18,6 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class AsesorDashboardComponent implements OnInit {
 
+  // btnStyle : string;
   matriculaAlumno : string;
   carreraAlumno : string;
   estadoAlumno : string;
@@ -42,6 +43,7 @@ export class AsesorDashboardComponent implements OnInit {
   constructor(private db : AngularFireDatabase, private router : Router) { }
 
   ngOnInit() {
+    // this.btnStyle = 'button';
   }
 
   getAlumno(){
@@ -148,10 +150,11 @@ export class AsesorDashboardComponent implements OnInit {
           this.db.database.ref(`2018Semestre2/${bloque}/Elecciones/${this.votandoPara}`).once('value').then(snap=>{
             this.db.database.ref(`2018Semestre2/${bloque}/Elecciones/${this.votandoPara}`).update({votos: snap.val().votos+1});
           });
-
+          // this.btnStyle = 'button-voted';
         }
       }
     });
+    this.getAlumno();
   }
 
   searchiIfVoted(matricula,bloque,eleccion) {

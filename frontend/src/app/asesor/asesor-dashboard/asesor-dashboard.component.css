@@ -45,3 +45,14 @@ button{
 	background-color: #673ab7;
 	color: white;
 }
+
+.button-voted{
+	background: #cccccc;
+	color: #666666;
+	pointer-events: none;
+}
+
+.button-notVoted{
+	background-color: #673ab7;
+	color: white;
+}
