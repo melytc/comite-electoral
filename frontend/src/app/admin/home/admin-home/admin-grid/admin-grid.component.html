@@ -1,4 +1,4 @@
-<mat-grid-list cols="3" rowHeight="400px">
+<mat-grid-list cols="3" rowHeight="600px">
   <mat-grid-tile>
     <mat-card class="bloque-card">
       <mat-card-header>
@@ -9,13 +9,13 @@
 
                   <!--- Note that these columns can be defined in any order.
                         The actual rendered columns are set as a property on the row definition" -->
-                
+
                   <!-- Name Column -->
                   <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef> <b style="color:black">Nombre</b> </th>
                     <td mat-cell *matCellDef="let bloque"> <p style="color:black">{{bloque.name}}</p> </td>
                   </ng-container>
-                
+
                   <tr mat-header-row *matHeaderRowDef="displayedColumnsBloques"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumnsBloques;"(click)="selectRow(row)"></tr>
                 </table>
@@ -35,13 +35,13 @@
 
           <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
-        
+
           <!-- Name Column -->
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> <b style="color:black">Nombre</b> </th>
             <td mat-cell *matCellDef="let eleccion"> <p style="color:black">{{eleccion.name}}</p> </td>
           </ng-container>
-        
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsElecciones"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsElecciones;"(click)="selectRow(row)"></tr>
         </table>
