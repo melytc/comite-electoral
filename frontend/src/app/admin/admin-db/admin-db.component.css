@@ -23,7 +23,6 @@ input[type="file" i]{
   }
   
   .btn {
-    
     color: white;
     background-color: gray;
     padding: 8px 20px;
@@ -35,4 +34,8 @@ input[type="file" i]{
     position: absolute;
     left: 0;
     opacity: 0;
+  }
+
+  h1, p {
+	font-family: helvetica;
   }
