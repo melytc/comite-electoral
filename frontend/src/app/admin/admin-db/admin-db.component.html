@@ -1,8 +1,14 @@
 <app-nav-bar-admin></app-nav-bar-admin>
 <div class="container center">
-        <div class="upload-btn-wrapper">
-                <button class="btn">Upload a file</button>
-                <input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
-              </div>
-        <button style="position: absolute; display: block;" mat-raised-button color="primary" (click)="Upload()">Upload</button>
+	<div class="title" align="left">
+		<h1>Administraci&oacute;n del alumnado</h1>
+	</div>
+
+	<p>Carga al sistema un archivo tipo Excel con la informaci&oacute;n de todos los alumnos inscritos en el semestre actual.</p>
+	<p>Este procedimiento se debe hacer <b>una sola</b> vez al inicio de cada semestre para actualizar la base de datos del alumnado del campus. De lo contrario, se perder&aacute; toda la informaci&oacute;n del sistema.</p>
+	<div class="upload-btn-wrapper">
+			<button class="btn">Upload a file</button>
+			<input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
+			</div>
+	<button style="position: absolute; display: block;" mat-raised-button color="primary" (click)="Upload()">Upload</button>
 </div>
