@@ -60,7 +60,7 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'signup', component: SignupComponent},
 	// { path: 'admin/admin-elecciones', component: DashboardEleccionesComponent }, eliminar este componente
-	{ path: 'admin/alumnado', component : AdminDbComponent}, // actualizar pantalla, 
+	{ path: 'admin/alumnado', component : AdminDbComponent},
 	// { path: 'admin/home', component: AdminDashboardComponent}, eliminar este componente
 	{ path: 'admin/usuarios', component : UsersComponent },
 	// { path: 'admin/admin-registros', component : AdminRegistrosComponent}, eliminar este componente
