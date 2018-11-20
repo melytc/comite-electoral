@@ -3,7 +3,7 @@
     height: 100%;
     max-width: 500px;
     max-height: 500px;
-    background: linear-gradient(to top left, #616161 38%, #9E9E9E 100%);
+    background: linear-gradient(to top left, #296ee5cb 38%, #2f71e4 100%);
 }
 
 .grupo-card{
@@ -12,7 +12,7 @@
     max-width: 500px;
     max-height: 500px;
     max-width: 500px;
-    background: linear-gradient(to top left, #BDBDBD 38%, #E0E0E0 100%);
+    background: linear-gradient(to top left, rgb(189, 49, 49) 38%, rgb(240, 30, 30) 100%);
 }
 
 .grafica-card{
@@ -20,7 +20,7 @@
     height: 100%;
     max-width: 500px;
     max-height: 500px;
-    background: linear-gradient(to top left, #616161 38%, #9E9E9E 100%);
+    background: linear-gradient(to top left, #d8c622c7 38%, rgb(214, 195, 27) 100%);
 }
 p{
     font-size: 20px;    
@@ -56,5 +56,5 @@ display: inline-block;
 }
 
 table {
-    width: 100%;
-  }
+width: 100%;
+}
