@@ -36,6 +36,7 @@ export class AdminGridComponent implements OnInit {
         name : String(result.name),
         startDate : String(result.startDate),
         finishDate : String(result.finishDate),
+        type : String(result.type),
         inProgress: true
       })
     });
@@ -52,7 +53,9 @@ export class AdminGridComponent implements OnInit {
 
       this.db.database.ref(`2018Semestre2/${this.selectedBloque}/Elecciones/${result.name}`).set({
         name : String(result.name),
-        inProgress: true
+        inProgress: true,
+        votos : 0,
+        carreras : result.carreras,
       }).then(()=>{
         this.fetchInfo();
         this.refreshBloques();
@@ -90,7 +93,7 @@ export class AdminGridComponent implements OnInit {
       console.log(this.bloques)
     })
   }
-  
+
   refreshBloques(){
     if(this.bloquesJson[this.selectedBloque].Elecciones){
       var elec = this.bloquesJson[this.selectedBloque].Elecciones;

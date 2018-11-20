@@ -63,9 +63,10 @@ export class AsesorDashboardComponent implements OnInit {
         snap.forEach(element => {
           // Elecion de carreras - bloque CSA
           if(element.val().inProgress === true && element.val().type === "csa"){
-            this.bloque = element.val().name
+            var actualBloque = element.val().name
+            // this.bloque = element.val().name
             console.log(this.bloque)
-            this.db.database.ref(`2018Semestre2/${this.bloque}/Elecciones`).once('value').then(snap=>{
+            this.db.database.ref(`2018Semestre2/${actualBloque}/Elecciones`).once('value').then(snap=>{
               snap.forEach(element => {
                 console.log(element.val().name);
                   this.arrCarreras = element.val().carreras;
@@ -73,12 +74,12 @@ export class AsesorDashboardComponent implements OnInit {
                     if(carrera === this.carreraAlumno){
                       fueVotado = false
                       console.log(element.val().name);
-                      this.searchiIfVoted(this.matriculaAlumno,this.bloque,element.val().name).then((result) =>{
+                      this.searchiIfVoted(this.matriculaAlumno,actualBloque,element.val().name).then((result) =>{
                         if(result === "true"){
                           fueVotado = true;
                           console.log("SI JALOOOOO" + fueVotado)
                         }
-                        arrAuxElecciones.push({eleccion: element.val().name, bloque: this.bloque, isVoted: fueVotado});
+                        arrAuxElecciones.push({eleccion: element.val().name, bloque: actualBloque, isVoted: fueVotado});
                         console.log(arrAuxElecciones);
                       });
 

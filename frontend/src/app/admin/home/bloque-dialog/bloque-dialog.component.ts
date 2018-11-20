@@ -16,6 +16,7 @@ export class BloqueDialogComponent implements OnInit {
   startDate : "";
   finishDate : "";
   nombre : "";
+  type : "";
 
   constructor(public dialogRef: MatDialogRef<BloqueDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public result: DialogData) { }
@@ -28,7 +29,8 @@ export class BloqueDialogComponent implements OnInit {
     this.dialogRef.close({
       name: this.nombre,
       startDate : this.startDate,
-      finishDate : this.finishDate
+      finishDate : this.finishDate,
+      type: this.type
     });
 
   }
