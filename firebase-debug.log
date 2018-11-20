@@ -1,0 +1,93 @@
+[debug] [2018-11-20T13:00:29.074Z] ----------------------------------------------------------------------
+[debug] [2018-11-20T13:00:29.077Z] Command:       /usr/local/Cellar/node/10.10.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-20T13:00:29.077Z] CLI Version:   3.18.5
+[debug] [2018-11-20T13:00:29.077Z] Platform:      darwin
+[debug] [2018-11-20T13:00:29.077Z] Node Version:  v10.10.0
+[debug] [2018-11-20T13:00:29.079Z] Time:          Tue Nov 20 2018 07:00:29 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:29.079Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-20T13:00:29.092Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-20T13:00:29.093Z] > authorizing via signed-in user
+[debug] [2018-11-20T13:00:29.096Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-20T13:00:29.096Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/BrZ6OufZohRJ4lLwnNZ58r2A_kzxdlY-thxMtzp9MoI',
+  client_id:
+   '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope:
+   'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Nov 20 2018 07:00:29 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:29.410Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-20T13:00:29.415Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/comite-electoral  
+  
+ Tue Nov 20 2018 07:00:29 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:29.760Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-20T13:00:29.762Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/comite-electoral/tokens  
+  
+ Tue Nov 20 2018 07:00:29 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:30.066Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'comite-electoral'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing public directory for upload...
+[debug] [2018-11-20T13:00:31.319Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/comite-electoral/uploads/-LRlCI-Kb5LR7B9Xskgr?fileCount=13&message=  
+  
+ Tue Nov 20 2018 07:00:31 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:33.162Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-20T13:00:33.162Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-20T13:00:33.164Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:182:13)
+    at Request.EventEmitter.emit (domain.js:442:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1157:10)
+    at Request.emit (events.js:182:13)
+    at Request.EventEmitter.emit (domain.js:442:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1079:12)
+    at Object.onceWrapper (events.js:273:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-11-20T13:00:47.475Z] ----------------------------------------------------------------------
+[debug] [2018-11-20T13:00:47.478Z] Command:       /usr/local/Cellar/node/10.10.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-20T13:00:47.478Z] CLI Version:   3.18.5
+[debug] [2018-11-20T13:00:47.478Z] Platform:      darwin
+[debug] [2018-11-20T13:00:47.478Z] Node Version:  v10.10.0
+[debug] [2018-11-20T13:00:47.481Z] Time:          Tue Nov 20 2018 07:00:47 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:47.481Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-20T13:00:47.496Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-20T13:00:47.497Z] > authorizing via signed-in user
+[debug] [2018-11-20T13:00:47.501Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/comite-electoral  
+  
+ Tue Nov 20 2018 07:00:47 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:47.850Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-20T13:00:47.851Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/comite-electoral/tokens  
+  
+ Tue Nov 20 2018 07:00:47 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:48.136Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'comite-electoral'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing public directory for upload...
+[debug] [2018-11-20T13:00:49.328Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/comite-electoral/uploads/-LRlCMPluVtv7Oaz-W3A?fileCount=13&message=  
+  
+ Tue Nov 20 2018 07:00:49 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:00:51.758Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-20T13:00:51.758Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-20T13:00:51.760Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:182:13)
+    at Request.EventEmitter.emit (domain.js:442:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1157:10)
+    at Request.emit (events.js:182:13)
+    at Request.EventEmitter.emit (domain.js:442:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1079:12)
+    at Object.onceWrapper (events.js:273:13)
+[error] 
+[error] Error: An unexpected error has occurred.
