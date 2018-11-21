@@ -7,16 +7,17 @@
     <!-- MARK: Displayed only when ADMIN session is stablished -->
 
 	<div class="button-row">
-		<button class="nabvar-button" mat-button [matMenuTriggerFor]="elecciones">ELECCIONES</button>
+		<button class="nabvar-button" mat-button routerLink="/admin/home">HOME</button>
+
+    <!-- <button class="nabvar-button" mat-button [matMenuTriggerFor]="elecciones">ELECCIONES</button>
 		<mat-menu #elecciones="matMenu" overlapTrigger="false">
 		  <button mat-menu-item routerLink="/admin/admin-elecciones">Administraci&oacute;n de elecciones</button>
 		  <button mat-menu-item routerLink="/admin/admin-resultados">Resultados</button>
-		</mat-menu>
+		</mat-menu> -->
 
 		<button class="nabvar-button" mat-button [matMenuTriggerFor]="registros">REGISTROS</button>
 		<mat-menu #registros="matMenu" overlapTrigger="false">
 			<button mat-menu-item routerLink="/admin/admin-bloquesRegistro">Administraci&oacute;n de bloques de registros</button>
-			<button mat-menu-item routerLink="/candidatos/bloques">Registro Candidatos</button>
 		  <button mat-menu-item routerLink="/admin/admin-registros">Tabla de registros</button>
 		</mat-menu>
 

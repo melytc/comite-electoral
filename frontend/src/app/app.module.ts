@@ -8,6 +8,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { MatNativeDateModule, MatCheckboxModule, MatStepperModule } from '@angular/material'
+import { ChartModule } from 'angular-highcharts';
+
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -23,6 +25,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 import { AppComponent } from './app.component';
@@ -127,7 +130,8 @@ const routes: Routes = [
     MatListModule,
     MatTableModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ChartModule
   ],
   entryComponents: [BloqueDialogComponent,EleccionDialogComponent,AddRoleDialogComponent],
 

@@ -1,0 +1,78 @@
+[debug] [2018-11-20T13:05:51.688Z] ----------------------------------------------------------------------
+[debug] [2018-11-20T13:05:51.696Z] Command:       /usr/local/Cellar/node/10.10.0/bin/node /usr/local/bin/firebase deploy --only hosting --debug
+[debug] [2018-11-20T13:05:51.697Z] CLI Version:   6.1.0
+[debug] [2018-11-20T13:05:51.697Z] Platform:      darwin
+[debug] [2018-11-20T13:05:51.697Z] Node Version:  v10.10.0
+[debug] [2018-11-20T13:05:51.699Z] Time:          Tue Nov 20 2018 07:05:51 GMT-0600 (Central Standard Time)
+[debug] [2018-11-20T13:05:51.699Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-20T13:05:51.721Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-20T13:05:51.722Z] > authorizing via signed-in user
+[debug] [2018-11-20T13:05:51.723Z] [iam] checking project comite-electoral for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2018-11-20T13:05:51.728Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/comite-electoral:testIamPermissions  
+
+[debug] [2018-11-20T13:05:52.244Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-20T13:05:52.247Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/comite-electoral  
+ 
+[debug] [2018-11-20T13:05:52.606Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'comite-electoral'...
+[info] 
+[info] i  deploying hosting
+[debug] [2018-11-20T13:05:52.614Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/comite-electoral/versions  
+
+[debug] [2018-11-20T13:05:54.027Z] <<< HTTP RESPONSE 200
+[info] i  hosting[comite-electoral]: beginning deploy...
+[info] i  hosting[comite-electoral]: found 13 files in public
+[debug] [2018-11-20T13:05:54.044Z] [hosting] hash cache [cHVibGlj] not populated
+[info] i  hosting: hashing files [12/13] (92%)
+[debug] [2018-11-20T13:05:56.192Z] [hosting] hash cache [cHVibGlj] stored for 13 files
+[debug] [2018-11-20T13:05:56.192Z] [hosting][hash queue][FINAL]
+[debug] [2018-11-20T13:05:56.193Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/comite-electoral/versions/c5753faefdddbfac:populateFiles  
+ <request body omitted>
+[debug] [2018-11-20T13:05:56.845Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-20T13:05:56.867Z] [hosting][populate queue][FINAL]
+[debug] [2018-11-20T13:05:56.868Z] [hosting] uploads queued: undefined
+[info] i  hosting: uploading new files [NaN/undefined] (NaN%)
+[info] i  hosting: uploading new files [NaN/undefined] (NaN%)
+[debug] [2018-11-20T13:06:01.023Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[comite-electoral]: file upload complete
+[debug] [2018-11-20T13:06:01.025Z] [hosting] deploy completed after 6996ms
+[debug] [2018-11-20T13:06:01.264Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "comite-electoral"
+    },
+    "site": "comite-electoral",
+    "version": "sites/comite-electoral/versions/c5753faefdddbfac"
+  }
+]
+[info] i  hosting[comite-electoral]: finalizing version...
+[debug] [2018-11-20T13:06:01.265Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/comite-electoral/versions/c5753faefdddbfac?updateMask=status  
+
+[debug] [2018-11-20T13:06:01.754Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-20T13:06:01.755Z] [hosting] finalized version for comite-electoral:
+[info] ✔  hosting[comite-electoral]: version finalized
+[info] i  hosting[comite-electoral]: releasing new version...
+[debug] [2018-11-20T13:06:01.756Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/comite-electoral/releases?version_name=sites/comite-electoral/versions/c5753faefdddbfac  
+
+[debug] [2018-11-20T13:06:02.275Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-20T13:06:02.275Z] [hosting] release:
+[info] ✔  hosting[comite-electoral]: release complete
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/comite-electoral/overview
+[info] Hosting URL: https://comite-electoral.firebaseapp.com

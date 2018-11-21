@@ -92,3 +92,7 @@ ul{
 .content{
   display: inherit;
 }
+
+.gruposAEleccion{
+  color: white;
+}
