@@ -122,11 +122,11 @@
         <mat-step>
             <ng-template matStepLabel>Documentos Registro</ng-template>
             <p>DOCUMENTOS REGISTRO</p>
-            <a mat-button color="primary">Carta Director Carrera</a>
+            <a mat-button color="primary" [(ngModel)]="carta" href="{{carta}}" target="_blank">Carta Director Carrera</a>
             <br>
-            <a mat-button color="primary">Licencia</a>
+            <a mat-button color="primary" [(ngModel)]="licencia" href="{{licencia}}" target="_blank">Licencia</a>
             <br>
-            <a mat-button color="primary">Comprobante de Pago</a>
+            <a mat-button color="primary" [(ngModel)]="comprobante" href="{{comprobante}}" target="_blank">Comprobante de Pago</a>
             <br>
             <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
             <button mat-button class="edit-button" (click)=terminar() >Terminar</button>

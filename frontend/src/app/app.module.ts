@@ -57,6 +57,8 @@ import { AsesorDashboardComponent } from './asesor/asesor-dashboard/asesor-dashb
 import { AdminResultadosComponent } from './admin/admin-resultados/admin-resultados.component';
 import { CandidatosRegistroComponent } from './candidatos/candidatos-registro/candidatos-registro.component';
 import { AdminBloquesRegistroComponent } from './admin/admin-bloques-registro/admin-bloques-registro.component';
+import { CandidatosListaComponent } from './candidatos/candidatos-lista/candidatos-lista.component';
+import { CandidatosDetalleComponent } from './candidatos/candidatos-detalle/candidatos-detalle.component';
 
 
 const routes: Routes = [
@@ -73,6 +75,7 @@ const routes: Routes = [
   { path: 'admin/admin-resultados', component : AdminResultadosComponent},
   { path: 'asesor/dashboard',component : AsesorDashboardComponent},
   { path: 'candidatos/bloques', component : CandidatosRegistroComponent},
+  { path: 'admin/candidatos-lista', component : CandidatosListaComponent}
 ];
 
 @NgModule({
@@ -101,7 +104,9 @@ const routes: Routes = [
     AsesorDashboardComponent,
     AdminResultadosComponent,
     CandidatosRegistroComponent,
-    AdminBloquesRegistroComponent
+    AdminBloquesRegistroComponent,
+    CandidatosListaComponent,
+    CandidatosDetalleComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -133,7 +138,7 @@ const routes: Routes = [
     MatTooltipModule,
     ChartModule
   ],
-  entryComponents: [BloqueDialogComponent,EleccionDialogComponent,AddRoleDialogComponent],
+  entryComponents: [BloqueDialogComponent,EleccionDialogComponent,AddRoleDialogComponent, CandidatosDetalleComponent],
 
   providers: [DatabaseService],
   bootstrap: [AppComponent]

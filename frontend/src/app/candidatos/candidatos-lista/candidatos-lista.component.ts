@@ -46,7 +46,6 @@ export class CandidatosListaComponent implements OnInit {
       console.log(arrDB);
       this.dataSourceLista = new MatTableDataSource(arrDB);
     })
-
   }
 
 }
