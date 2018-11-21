@@ -86,3 +86,7 @@ a ul{
   border-radius: 300px;
   background-color: #FFFFFF;
 }
+
+.topnav-right {
+  float: right;
+}
