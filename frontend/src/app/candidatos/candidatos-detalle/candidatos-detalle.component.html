@@ -1,0 +1,135 @@
+  <div class="container">
+    <h1>Detalle de Candidatos</h1>
+    <h3>Datos de Registro</h3>
+
+    <mat-horizontal-stepper #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Informacion Grupo Estudiantil</ng-template>
+            <div class= "row">
+              <div class="col-md-6 col-lg-6">
+                  <mat-form-field appearance = "outline" required>
+                    <input matInput placeholder="Grupo Estudiantil" disabled value="" [(ngModel)]="grupoEstudiantil">
+                  </mat-form-field>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                  <mat-checkbox class="checkbox" value="Enero-Diciembre" ng-checked="periodo" [(ngModel)]="periodo">Enero-Diciembre</mat-checkbox>
+                  <mat-checkbox class="checkbox" value="Agosto-Mayo"ng-checked="periodo" [(ngModel)]="periodo">Agosto-Mayo</mat-checkbox>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Nombre de la candidatura</mat-label>
+                    <input matInput placeholder="Nombre de la candidatura" [(ngModel)]="nombreCandidatura" disabled>
+                </mat-form-field>
+              </div>
+            </div>
+            <br>
+            <div>
+              <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Informacion Candidato Presidente</ng-template>
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Nombre(s) Presidente</mat-label>
+                    <input matInput placeholder="Nombre(s)" [(ngModel)]="nombresPresidente" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Apellidos Presidente</mat-label>
+                    <input class="p-5" matInput placeholder="Apellidos" [(ngModel)]="apellidosPresidente" disabled>
+                  </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="4" rowHeight="4:3">
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Matricula Presidente</mat-label>
+                    <input matInput placeholder="Matricula" [(ngModel)]="matriculaPresidente" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Celular Presidente</mat-label>
+                  <input matInput placeholder="Nombre de la candidatura" [(ngModel)]="celularPresidente" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Semestre Presidente</mat-label>
+                  <input matInput placeholder="Nombre de la candidatura" [(ngModel)]="semestrePresidente" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Promedio Presidente</mat-label>
+                    <input class="p-5" matInput placeholder="Promedio"  [(ngModel)]="promedioPresidente" disabled>
+                </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Celular Presidente</mat-label>
+                    <input matInput placeholder="Celular"  [(ngModel)]="celularPresidente" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>E-Mail Presidente</mat-label>
+                    <input class="p-5" matInput placeholder="E-Mail"  [(ngModel)]="emailPresidente" disabled>
+                  </mat-form-field>
+            </mat-grid-list>
+            <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+            <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Informacion Candidato Videpresidente</ng-template>
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Nombre(s) Vicepresidente</mat-label>
+                    <input matInput placeholder="Nombre(s)"  [(ngModel)]="nombresVice" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Apellidos</mat-label>
+                    <input class="p-5" matInput placeholder="Apellidos" [(ngModel)]="apellidosVice" disabled>
+                  </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="4" rowHeight="4:3">
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Matricula Vicepresidente</mat-label>
+                    <input matInput placeholder="Matricula"  [(ngModel)]="matriculaVice" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Carrera Vicepresidente</mat-label>
+                  <input matInput placeholder="Nombre de la candidatura" [(ngModel)]="carreraVice" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2" required>
+                    <mat-label>Semestre Vicepresidente</mat-label>
+                  <input matInput placeholder="Nombre de la candidatura" [(ngModel)]="semestreVice" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline" class="lista2">
+                    <mat-label>Promedio Vicepresidente</mat-label>
+                    <input class="p-5" matInput placeholder="Promedio" [(ngModel)]="promedioVice" disabled>
+                </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>Celular Vicepresidente</mat-label>
+                    <input matInput placeholder="Celular" [(ngModel)]="celularVice" disabled>
+                </mat-form-field>
+                <mat-form-field appearance = "outline"  class="lista1">
+                    <mat-label>E-Mail Vicepresidente</mat-label>
+                    <input class="p-5" matInput placeholder="E-Mail" name="" [(ngModel)]="emailVice" ngDefaultControl disabled>
+                  </mat-form-field>
+            </mat-grid-list>
+
+            <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+            <button mat-button class="edit-button" matStepperNext>Siguiente</button>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Documentos Registro</ng-template>
+            <p>DOCUMENTOS REGISTRO</p>
+            <a mat-button color="primary">Carta Director Carrera</a>
+            <br>
+            <a mat-button color="primary">Licencia</a>
+            <br>
+            <a mat-button color="primary">Comprobante de Pago</a>
+            <br>
+            <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
+            <button mat-button class="edit-button" (click)=terminar() >Terminar</button>
+        </mat-step>
+      </mat-horizontal-stepper>
+  </div>

@@ -1,0 +1,24 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+
+<table mat-table [dataSource]="dataSourceLista" class="table mat-elevation-z8">
+  <!-- Matricula Column -->
+  <ng-container matColumnDef="key">
+    <th mat-header-cell *matHeaderCellDef> ID Candidatura </th>
+    <td mat-cell *matCellDef="let user"> {{user.key}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nombresPresidente">
+    <th mat-header-cell *matHeaderCellDef> Presidente </th>
+    <td mat-cell *matCellDef="let user"> {{user.nombresPresidente}} </td>
+  </ng-container>
+
+  <!-- Vide Column -->
+  <ng-container matColumnDef="nombresVice">
+    <th mat-header-cell *matHeaderCellDef> Videpresidente </th>
+    <td mat-cell *matCellDef="let user"> {{user.nombresVice}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsLista"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsLista;" (click)="openDialog(row)"></tr>
+</table>
