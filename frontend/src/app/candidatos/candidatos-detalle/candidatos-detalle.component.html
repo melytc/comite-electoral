@@ -129,7 +129,7 @@
             <a mat-button color="primary" [(ngModel)]="comprobante" href="{{comprobante}}" target="_blank">Comprobante de Pago</a>
             <br>
             <button mat-button class="edit-button" matStepperPrevious>Anterior</button>
-            <button mat-button class="edit-button" (click)=terminar() >Terminar</button>
+            <button mat-button class="edit-button" mat-dialog-close >Salir</button>
         </mat-step>
       </mat-horizontal-stepper>
   </div>

@@ -25,7 +25,7 @@ export class CandidatosListaComponent implements OnInit {
 
   openDialog(row, candidatura) {
     let dialogRefCand = this.dialog.open(CandidatosDetalleComponent, {
-      width: '700px',
+      width: '800px',
       data: {row,candidatura}
     });
     dialogRefCand.afterClosed().subscribe(result => {
